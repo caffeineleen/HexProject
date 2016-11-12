@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_config_main.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/game_config_main.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_remote_tab.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/game_remote_tab.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_player_list_row.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/game_player_list_row.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/ttt_human_player1_flipped.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/ttt_human_player1_flipped.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/ttt_human_player2.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/ttt_human_player2.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_local_tab.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/game_local_tab.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/ttt_human_player1.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/ttt_human_player1.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_config_tabhost.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/game_config_tabhost.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_no_gui.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/game_no_gui.xml"
+    }
+]
