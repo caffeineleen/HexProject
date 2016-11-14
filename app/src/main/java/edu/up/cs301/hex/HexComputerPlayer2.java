@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.hex;
 
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
@@ -13,7 +13,7 @@ import android.graphics.Point;
  * @version September 2016
  * 
  */
-public class TTTComputerPlayer2 extends GameComputerPlayer
+public class HexComputerPlayer2 extends GameComputerPlayer
 {
 	/**
 	 * instance variable that tells which piece am I playing ('X' or 'O').
@@ -28,7 +28,7 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 	 * @param name
 	 * 		the player's name
 	 */
-	public TTTComputerPlayer2(String name) {
+	public HexComputerPlayer2(String name) {
 		// invoke superclass constructor
 		super(name);
 	}// constructor
@@ -52,10 +52,10 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 	@Override
 	protected void receiveInfo(GameInfo info) {
 
-		// if it's not a TTTState message, ignore it; otherwise
+		// if it's not a HexState message, ignore it; otherwise
 		// cast it
-		if (!(info instanceof TTTState)) return;
-		TTTState myState = (TTTState)info;
+		if (!(info instanceof HexState)) return;
+		HexState myState = (HexState)info;
 
 		// if it's not our move, ignore it
 		if (myState.getWhoseMove() != this.playerNum) return;
@@ -66,7 +66,7 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 		// if we find a win, select that move
 		Point win = findWin(myState, piece);
 		if (win != null) {
-			game.sendAction(new TTTMoveAction(this, win.y, win.x));
+			game.sendAction(new HexMoveAction(this, win.y, win.x));
 			return;
 		}
 
@@ -75,7 +75,7 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 		char opponentPiece = piece == 'X' ? 'O' : 'X';
 		Point loss = findWin(myState, opponentPiece);
 		if (loss != null) {
-			game.sendAction(new TTTMoveAction(this, loss.y, loss.x));
+			game.sendAction(new HexMoveAction(this, loss.y, loss.x));
 			return;
 		}
 
@@ -84,8 +84,8 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 
 		// count the spaces
 		int spaceCount = 0;
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
+		for (int i = 0; i < 13; i++) {
+			for (int j = 0; j < 13; j++) {
 				if (myState.getPiece(j, i) == ' ') spaceCount++;
 			}
 		}
@@ -95,12 +95,12 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 
 		// re-find the space that corresponds to the random integer we
 		// just generated; make that move
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
+		for (int i = 0; i < 13; i++) {
+			for (int j = 0; j < 13; j++) {
 				if (myState.getPiece(j, i) == ' ') {
 					if (selectCount == 0) {
 						// make the move
-						game.sendAction(new TTTMoveAction(this, j, i));
+						game.sendAction(new HexMoveAction(this, j, i));
 						return;
 					}
 					selectCount--;
@@ -118,7 +118,7 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 	 * @return  If a winning move was found, a Point object containing
 	 *   the coordinates.  If no winning move was found, null.
 	 */
-	private Point findWin(TTTState state, char thePiece) {
+	private Point findWin(HexState state, char thePiece) {
 
 		// the winning move--initialized to null because we haven't found
 		// one yet
@@ -127,7 +127,7 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 		// iterate through each of the positions 0, 1 and 2, examining a
 		// vertical, horizontal and diagonal on each iteration
 		//
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 13; i++) {
 
 			// winning value we found, if any
 			Point temp = null;
@@ -176,8 +176,8 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 	 *   the coordinates.  If no winning move was found, null.
 	 */
 	// helper method to find a winning move
-	private Point helpFindWin(TTTState state, char thePiece, int rowStart,
-			int colStart, int rowDelta, int colDelta) {
+	private Point helpFindWin(HexState state, char thePiece, int rowStart,
+							  int colStart, int rowDelta, int colDelta) {
 
 		// our starting position
 		int row = rowStart;
@@ -192,7 +192,7 @@ public class TTTComputerPlayer2 extends GameComputerPlayer
 		// determine if the three squares in question contain exactly two
 		// square of the given piece and one square of that is blank
 		//
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 13; i++) {
 
 			// get the piece at the position
 			char pc = state.getPiece(row,col);

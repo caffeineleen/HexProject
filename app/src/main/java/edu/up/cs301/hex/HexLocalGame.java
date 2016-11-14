@@ -1,22 +1,21 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.hex;
 
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
-import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 
 /**
- * The TTTLocalGame class for a simple tic-tac-toe game.  Defines and enforces
+ * The HexLocalGame class for a simple tic-tac-toe game.  Defines and enforces
  * the game rules; handles interactions with players.
  * 
  * @author Steven R. Vegdahl 
  * @version July 2013
  */
 
-public class TTTLocalGame extends LocalGame {
+public class HexLocalGame extends LocalGame {
 
 	// the game's state
-	protected TTTState state;
+	protected HexState state;
 
 	// the marks for player 0 and player 1, respectively
 	private final static char[] mark = {'X','O'};
@@ -26,15 +25,15 @@ public class TTTLocalGame extends LocalGame {
 	protected int moveCount;
 
 	/**
-	 * Constructor for the TTTLocalGame.
+	 * Constructor for the HexLocalGame.
 	 */
-	public TTTLocalGame() {
+	public HexLocalGame() {
 
 		// perform superclass initialization
 		super();
 
-		// create a new, unfilled-in TTTState object
-		state = new TTTState();
+		// create a new, unfilled-in HexState object
+		state = new HexState();
 	}
 
 	/**
@@ -120,7 +119,7 @@ public class TTTLocalGame extends LocalGame {
 	@Override
 	protected void sendUpdatedStateTo(GamePlayer p) {
 		// make a copy of the state, and send it to the player
-		p.sendInfo(new TTTState(state));
+		p.sendInfo(new HexState(state));
 
 	}
 
@@ -149,7 +148,7 @@ public class TTTLocalGame extends LocalGame {
 	protected boolean makeMove(GameAction action) {
 
 		// get the row and column position of the player's move
-		TTTMoveAction tm = (TTTMoveAction) action;
+		HexMoveAction tm = (HexMoveAction) action;
 		int row = tm.getRow();
 		int col = tm.getCol();
 

@@ -1,19 +1,12 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.hex;
 
 import android.app.Activity;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.Point;
-import android.graphics.RectF;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-import edu.up.cs301.animation.AnimationSurface;
-import edu.up.cs301.animation.Animator;
+
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.R;
@@ -28,13 +21,13 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * @author Steven R. Vegdahl
  * @version September 2016
  */
-public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchListener {
+public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchListener {
 
     // the current activity
     private Activity myActivity;
 
     // the surface view
-    private TTTSurfaceView surfaceView;
+    private HexSurfaceView surfaceView;
 
     // the ID for the layout to use
     private int layoutId;
@@ -47,7 +40,7 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
      * @param layoutId
      *      the id of the layout to use
      */
-    public TTTHumanPlayer1(String name, int layoutId) {
+    public HexHumanPlayer1(String name, int layoutId) {
         super(name);
         this.layoutId = layoutId;
     }
@@ -67,11 +60,11 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
             // if the move was out of turn or otherwise illegal, flash the screen
             surfaceView.flash(Color.RED, 50);
         }
-        else if (!(info instanceof TTTState))
-            // if we do not have a TTTState, ignore
+        else if (!(info instanceof HexState))
+            // if we do not have a HexState, ignore
             return;
         else {
-            surfaceView.setState((TTTState)info);
+            surfaceView.setState((HexState)info);
             surfaceView.invalidate();
             Log.i("human player", "receiving");
         }
@@ -89,7 +82,7 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         activity.setContentView(layoutId);
 
         // set the surfaceView instance variable
-        surfaceView = (TTTSurfaceView)myActivity.findViewById(R.id.surfaceView);
+        surfaceView = (HexSurfaceView)myActivity.findViewById(R.id.surfaceView);
         Log.i("set listener","OnTouch");
         surfaceView.setOnTouchListener(this);
     }
@@ -110,7 +103,7 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
      * knows what their game-position and opponents' names are.
      */
     protected void initAfterReady() {
-        myActivity.setTitle("Tic-Tac-Toe: "+allPlayerNames[0]+" vs. "+allPlayerNames[1]);
+        myActivity.setTitle("Hex: "+allPlayerNames[0]+" vs. "+allPlayerNames[1]);
     }
 
     /**
@@ -137,8 +130,8 @@ public class TTTHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         if (p == null) {
             surfaceView.flash(Color.RED, 50);
         } else {
-            TTTMoveAction action = new TTTMoveAction(this, p.y, p.x);
-            Log.i("onTouch", "Human player sending TTTMA ...");
+            HexMoveAction action = new HexMoveAction(this, p.y, p.x);
+            Log.i("onTouch", "Human player sending HexMA ...");
             game.sendAction(action);
             surfaceView.invalidate();
         }

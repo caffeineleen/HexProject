@@ -41,7 +41,7 @@ ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidMani
 		ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:14:9-45
 	android:theme
 		ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:16:9-40
-activity#edu.up.cs301.tictactoe.TTTMainActivity
+activity#edu.up.cs301.tictactoe.HexMainActivity
 ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:18:9-24:20
 	android:configChanges
 		ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:19:13-83

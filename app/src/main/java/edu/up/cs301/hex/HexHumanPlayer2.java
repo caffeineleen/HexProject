@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.hex;
 
 import android.graphics.Color;
 import android.view.View;
@@ -21,13 +21,13 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * @author Steven R. Vegdahl 
  * @version July 2013
  */
-public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener {
+public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener {
 	
 	// the activity under which we're running
 	GameMainActivity myActivity = null;
 	
 	// the game's state
-	TTTState state = null;
+	HexState state = null;
 	
 	/**
 	 * constuctor
@@ -35,7 +35,7 @@ public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 	 * @param name
 	 * 		the player's name
 	 */
-	public TTTHumanPlayer2(String name) {
+	public HexHumanPlayer2(String name) {
 		super(name);
 	}
 
@@ -156,7 +156,7 @@ public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 		int[] coord = mapNumberToCoord(val);
 		
 		// send a move action to the game
-		game.sendAction(new TTTMoveAction(this, coord[0], coord[1]));
+		game.sendAction(new HexMoveAction(this, coord[0], coord[1]));
 	}
 	
 	/**
@@ -213,14 +213,14 @@ public class TTTHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 			// if the move is out of turn or otherwise illegal, flash the screen
 			flash(Color.RED, 50);
 		}
-		else if (!(info instanceof TTTState)) {
-			// if it's not a TTTState object, ignore
+		else if (!(info instanceof HexState)) {
+			// if it's not a HexState object, ignore
 			return;
 		}
 		else {
 			// update the state variable, then update the GUI to reflect the updated
 			// state
-			state = (TTTState)info;
+			state = (HexState)info;
 			setButtonLocationsAndColors();
 		}
 	}

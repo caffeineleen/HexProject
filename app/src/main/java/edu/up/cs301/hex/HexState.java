@@ -1,17 +1,17 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.hex;
 
 import edu.up.cs301.game.infoMsg.GameState;
 
 
 /**
- * Contains the state of a Tic-Tac-Toe game.  Sent by the game when
+ * Contains the state of a Hex game.  Sent by the game when
  * a player wants to enquire about the state of the game.  (E.g., to display
  * it, or to help figure out its next move.)
  * 
  * @author Steven R. Vegdahl 
  * @version July 2013
  */
-public class TTTState extends GameState
+public class HexState extends GameState
 {
 	private static final long serialVersionUID = 7552321013488624386L;
 
@@ -26,23 +26,15 @@ public class TTTState extends GameState
     private int playerToMove;
 
 
-
-
-
     public int subRed;
     public int subBlue;
     public int win;
 
 
-
-
-
-
-
     /**
-     * Constructor for objects of class TTTState
+     * Constructor for objects of class HexState
      */
-    public TTTState()
+    public HexState()
     {
         // initialize the state to be a brand new game
         board = new char[3][3];
@@ -57,12 +49,12 @@ public class TTTState extends GameState
     }// constructor
     
     /**
-     * Copy constructor for class TTTState
+     * Copy constructor for class HexState
      *  
      * @param original
-     * 		the TTTState object that we want to clong
+     * 		the HexState object that we want to clong
      */
-    public TTTState(TTTState original)
+    public HexState(HexState original)
     {
     	// create a new 3x3 array, and copy the values from
     	// the original

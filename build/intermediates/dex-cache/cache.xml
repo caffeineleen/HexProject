@@ -2,11 +2,31 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Public\Documents\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/keons/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
         revision="22.0.1"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\relyean19\Desktop\TttGame-master\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-9dbd5083a214f729a19b739197611203326f5cd3.jar" />
+        <dex dex="/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_8a3c27ff3fd0a21e08f9872b8214a12c80576505/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="a75184914c6334da6a1c0decb3d36068eed09b76">
+        <dex dex="/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0cacbd2874a6d34098f141edf50fcbdca01d7f12/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="5f5c51a386b4fbf17f37179c885a6cb0dba1a993">
+        <dex dex="/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_875e329fc35708ce4502d61274e778a1dd1861cf/classes.dex" />
     </item>
 
 </items>

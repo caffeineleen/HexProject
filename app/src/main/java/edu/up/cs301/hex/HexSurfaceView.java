@@ -1,17 +1,12 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.hex;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.Point;
-import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.view.View;
+
 import edu.up.cs301.game.util.FlashSurfaceView;
 
 /**
@@ -23,7 +18,7 @@ import edu.up.cs301.game.util.FlashSurfaceView;
  *
  *
  */
-public class TTTSurfaceView extends FlashSurfaceView {
+public class HexSurfaceView extends FlashSurfaceView {
 
     // some constants, which are percentages with respect to the minimum
     // of the height and the width. All drawing will be done in the "middle
@@ -47,7 +42,7 @@ public class TTTSurfaceView extends FlashSurfaceView {
 	 */
 
     // the game's state
-    protected TTTState state;
+    protected HexState state;
 
     // the offset from the left and top to the beginning of our "middle square"; one
     // of these will always be zero
@@ -63,7 +58,7 @@ public class TTTSurfaceView extends FlashSurfaceView {
      *
      * @param context - a reference to the activity this animation is run under
      */
-    public TTTSurfaceView(Context context) {
+    public HexSurfaceView(Context context) {
         super(context);
         init();
     }// ctor
@@ -75,7 +70,7 @@ public class TTTSurfaceView extends FlashSurfaceView {
      * @param context - a reference to the activity this animation is run under
      * @param attrs   - set of attributes passed from system
      */
-    public TTTSurfaceView(Context context, AttributeSet attrs) {
+    public HexSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }// ctor
@@ -88,7 +83,7 @@ public class TTTSurfaceView extends FlashSurfaceView {
     }// init
 
 
-    public void setState(TTTState state) {
+    public void setState(HexState state) {
         this.state = state;
     }
 

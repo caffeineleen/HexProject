@@ -1,4 +1,4 @@
-package edu.up.cs301.tictactoe;
+package edu.up.cs301.hex;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ import edu.up.cs301.game.config.GamePlayerType;
  * @author Steven R. Vegdahl
  * @version July 2013
  */
-public class TTTMainActivity extends GameMainActivity {
+public class HexMainActivity extends GameMainActivity {
 	
 	public static final int PORT_NUMBER = 5213;
 
@@ -31,35 +31,28 @@ public class TTTMainActivity extends GameMainActivity {
 		// yellow-on-blue GUI
 		playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTHumanPlayer1(name, R.layout.ttt_human_player1);
-			}
-		});
-		
-		// red-on-yellow GUI
-		playerTypes.add(new GamePlayerType("Local Human Player (yellow-red)") {
-			public GamePlayer createPlayer(String name) {
-				return new TTTHumanPlayer1(name, R.layout.ttt_human_player1_flipped);
+				return new HexHumanPlayer1(name, R.layout.ttt_human_player1);
 			}
 		});
 
 		// game of 33
 		playerTypes.add(new GamePlayerType("Local Human Player (game of 33)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTHumanPlayer2(name);
+				return new HexHumanPlayer2(name);
 			}
 		});
 		
 		// dumb computer player
 		playerTypes.add(new GamePlayerType("Computer Player (dumb)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTComputerPlayer1(name);
+				return new HexComputerPlayer1(name);
 			}
 		});
 		
 		// smarter computer player
 		playerTypes.add(new GamePlayerType("Computer Player (smart)") {
 			public GamePlayer createPlayer(String name) {
-				return new TTTComputerPlayer2(name);
+				return new HexComputerPlayer2(name);
 			}
 		});
 
@@ -89,7 +82,7 @@ public class TTTMainActivity extends GameMainActivity {
 	 */
 	@Override
 	public LocalGame createLocalGame() {
-		return new TTTLocalGame();
+		return new HexLocalGame();
 	}
 
 }
