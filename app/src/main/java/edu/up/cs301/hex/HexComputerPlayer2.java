@@ -5,12 +5,15 @@ import edu.up.cs301.game.infoMsg.GameInfo;
 import android.graphics.Point;
 
 /**
- * A computerized tic-tac-toe player that recognizes an immediate win
+ * A computerized hex player that recognizes an immediate win
  * or loss, and plays appropriately.  If there is not an immediate win
  * (which it plays) or loss (which it blocks), it moves randomly.
  * 
- * @author Steven R. Vegdahl 
- * @version September 2016
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  * 
  */
 public class HexComputerPlayer2 extends GameComputerPlayer

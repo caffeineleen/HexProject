@@ -15,11 +15,14 @@ import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
 
 /**
- * A human (i.e., GUI) version of a tic-tac-toe player that gives the user
+ * A human (i.e., GUI) version of a hex player that gives the user
  * the "game of 33" view.
  * 
- * @author Steven R. Vegdahl 
- * @version July 2013
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  */
 public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener {
 	
@@ -168,7 +171,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 		myActivity = activity;
 
 		// Load the layout resource for the new configuration
-		activity.setContentView(R.layout.ttt_human_player2);
+		activity.setContentView(R.layout.hex_human_player2);
 		
 		// initialize the button-array
 		initializeButtons();
@@ -226,7 +229,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 	}
    
     // tells the mapping between numbers in the game of 33 and the
-    // corresponding square in the tic-tac-toe game
+    // corresponding square in the hex game
     private static int[][] mapping = {
         {1,0}, // value = 7
         {2,2}, // value = 8
@@ -240,10 +243,10 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     };
     
     /**
-     * maps a game-of-33 number to the corresponding tic-tac-toe coordinate
+     * maps a game-of-33 number to the corresponding hex coordinate
      * 
      * @param x the number to map
-     * @return  a two-element array of int containing the tic-tac-toe
+     * @return  a two-element array of int containing the hex
      *   coordinates if the number is in the right range; otherwise, null
      */
     private static int[] mapNumberToCoord(int x) {
@@ -255,7 +258,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
         // if we're out of range return null
         if (idx < 0 || idx >= mapping.length) return null;
         
-        // number is in range: return corresponding tic-tac-toe coordinate
+        // number is in range: return corresponding hex coordinate
         return mapping[idx];
     }
     
@@ -285,7 +288,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     	if (buttonNumber < 7 || buttonNumber > 15) return;
     	
     	// find the value of the piece (X, O or blank) by mapping
-    	// the button number to the tic-tac-toe coordinate
+    	// the button number to the hex coordinate
     	int[] coord = mapNumberToCoord(buttonNumber);
     	char piece = state.getPiece(coord[0], coord[1]);
     	
@@ -355,7 +358,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     		return -1;
     	}
     	
-    	// map the player number to the corresponding tic-tac-toe coordinate
+    	// map the player number to the corresponding hex coordinate
     	int[] coord = mapNumberToCoord(number);
     	
     	// return -1 (no one owns piece) if the number was not in range
@@ -414,4 +417,3 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     	super.gameIsOver(msg);
     }
 }
-

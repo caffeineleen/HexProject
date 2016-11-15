@@ -12,15 +12,18 @@ import edu.up.cs301.game.config.GamePlayerType;
 /**
  * this is the primary activity for Counter game
  * 
- * @author Steven R. Vegdahl
- * @version July 2013
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  */
 public class HexMainActivity extends GameMainActivity {
 	
 	public static final int PORT_NUMBER = 5213;
 
 	/**
-	 * a tic-tac-toe game is for two players. The default is human vs. computer
+	 * a hex game is for two players. The default is human vs. computer
 	 */
 	@Override
 	public GameConfig createDefaultConfig() {
@@ -31,7 +34,7 @@ public class HexMainActivity extends GameMainActivity {
 		// yellow-on-blue GUI
 		playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
 			public GamePlayer createPlayer(String name) {
-				return new HexHumanPlayer1(name, R.layout.ttt_human_player1);
+				return new HexHumanPlayer1(name, R.layout.hex_human_player1);
 			}
 		});
 
@@ -56,7 +59,7 @@ public class HexMainActivity extends GameMainActivity {
 			}
 		});
 
-		// Create a game configuration class for Tic-tac-toe
+		// Create a game configuration class for Hex
 		GameConfig defaultConfig = new GameConfig(playerTypes, 2,2, "Tic-Tac-Toe", PORT_NUMBER);
 
 		// Add the default players

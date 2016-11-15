@@ -7,7 +7,6 @@ import edu.up.cs301.game.infoMsg.GameInfo;
  * a particular game should implement this interface.
  * 
  * @author Steven R. Vegdahl
- * @author Andrew M. Nuxoll
  * @version July 2013
  */
 

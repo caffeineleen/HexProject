@@ -13,8 +13,11 @@ import edu.up.cs301.game.util.FlashSurfaceView;
  * A SurfaceView which allows which an animation to be drawn on it by a
  * Animator.
  *
- * @author Steve Vegdahl
- * @version 23 September 2016
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  *
  *
  */
@@ -54,7 +57,7 @@ public class HexSurfaceView extends FlashSurfaceView {
     protected float fullSquare;
 
     /**
-     * Constructor for the TTTSurfaceView class.
+     * Constructor for the HexSurfaceView class.
      *
      * @param context - a reference to the activity this animation is run under
      */
@@ -90,7 +93,7 @@ public class HexSurfaceView extends FlashSurfaceView {
 
     /**
      * @return
-     * 		the color to paint the tic-tac-toe lines, and the X's and O's
+     * 		the color to paint the hex lines, and the X's and O's
      */
     public int backgroundColor() {
         return Color.BLUE;
@@ -109,7 +112,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         // to the dimensions of the animation surface
         updateDimensions(g);
 
-        // paint the TTT-board's horizontal and vertical lines
+        // paint the Hex-board's horizontal and vertical lines
         Paint p = new Paint();
         p.setColor(Color.WHITE);
 

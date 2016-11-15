@@ -7,7 +7,7 @@ import edu.up.cs301.game.GamePlayer;
 /**
  * An action for a generic game.  A game action is something that a player
  * tells the game that it wants to do (e.g., put an 'X' on the top-left
- * tic-tac-toe square).  The game will then decide whether the player is
+ * hex square).  The game will then decide whether the player is
  * allowed to perform that action before effecting the action on the
  * players behalf.  Most real games will subclass GameAction to define
  * actions that are relevant to the particular game.  A GameAction contains

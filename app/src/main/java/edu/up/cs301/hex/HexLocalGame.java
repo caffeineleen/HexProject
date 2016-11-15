@@ -5,11 +5,14 @@ import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
- * The HexLocalGame class for a simple tic-tac-toe game.  Defines and enforces
+ * The HexLocalGame class for a simple hex game.  Defines and enforces
  * the game rules; handles interactions with players.
  * 
- * @author Steven R. Vegdahl 
- * @version July 2013
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  */
 
 public class HexLocalGame extends LocalGame {

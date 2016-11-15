@@ -21,7 +21,6 @@ import android.os.Looper;
  * the {@link #receiveInfo} method.
  * 
  * @author Steven R. Vegdahl
- * @author Andrew Nuxoll
  * @version July 2013
  */
 public abstract class GameComputerPlayer implements GamePlayer, Tickable {

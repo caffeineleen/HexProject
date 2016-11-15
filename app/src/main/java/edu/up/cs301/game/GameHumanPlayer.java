@@ -27,7 +27,6 @@ import android.view.View;
  * game state and responds to user commands.
  * 
  * @author Steven R. Vegdahl
- * @author Andrew Nuxoll
  * @version July 2013
  * 
  */

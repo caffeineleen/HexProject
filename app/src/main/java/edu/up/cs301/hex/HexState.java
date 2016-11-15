@@ -5,11 +5,14 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 /**
  * Contains the state of a Hex game.  Sent by the game when
- * a player wants to enquire about the state of the game.  (E.g., to display
+ * a player wants to enquire about the state of the game. (E.g., to display
  * it, or to help figure out its next move.)
  * 
- * @author Steven R. Vegdahl 
- * @version July 2013
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  */
 public class HexState extends GameState
 {
@@ -19,7 +22,7 @@ public class HexState extends GameState
     // ************** instance variables ************
     ///////////////////////////////////////////////////
 	
-	// the 3x3 array of char that represents the X's and O's on the board
+	// the 13x13 array of char that represents the X's and O's on the board
     private char[][] board;
     
     // an int that tells whose move it is
@@ -108,20 +111,10 @@ public class HexState extends GameState
         board[row][col] = piece;
     }
 
-
-
-
-
-
     public void placeStone(int turn, int x, int y)
     {
 
     }
-
-
-
-
-
 
     
     /**

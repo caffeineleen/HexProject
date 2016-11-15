@@ -8,7 +8,6 @@ import edu.up.cs301.game.actionMsg.GameAction;
  * this common interface.
  * 
  * @author Steven R. Vegdahl
- * @author Andrew M. Nuxoll
  * @version July 2013
  * @see LocalGame
  * @see ProxyGame

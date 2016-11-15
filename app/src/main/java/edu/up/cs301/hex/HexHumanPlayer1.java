@@ -18,8 +18,11 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * A GUI that allows a human to play tic-tac-toe. Moves are made by clicking
  * regions on a canvas
  *
- * @author Steven R. Vegdahl
- * @version September 2016
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  */
 public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchListener {
 
@@ -109,7 +112,7 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
     /**
      * callback method when the screen it touched. We're
      * looking for a screen touch (which we'll detect on
-     * the "up" movement" onto a tic-tac-tie square
+     * the "up" movement" onto a hex square
      *
      * @param event
      * 		the motion event that was detected

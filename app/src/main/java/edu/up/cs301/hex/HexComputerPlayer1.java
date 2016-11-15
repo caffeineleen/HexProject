@@ -8,8 +8,11 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * This is a really dumb computer player that always just makes a random move
  * it's so stupid that it sometimes tries to make moves on non-blank spots.
  * 
- * @author Steven R. Vegdahl
- * @versio2 July 2013 
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  */
 public class HexComputerPlayer1 extends GameComputerPlayer
 {

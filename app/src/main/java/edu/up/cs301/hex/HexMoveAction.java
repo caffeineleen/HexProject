@@ -4,11 +4,14 @@ import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.actionMsg.GameAction;
 
 /**
- * A game-move object that a tic-tac-toe player sends to the game to make
+ * A game-move object that a hex player sends to the game to make
  * a move.
  * 
- * @author Steven R. Vegdahl
- * @version 2 July 2001
+ * @author Justin Jacobs
+ * @author Navreen Kaur
+ * @author Nathan Relyea
+ * @author Kathleen Elisabeth Smith
+ * @version November 2016
  */
 public class HexMoveAction extends GameAction
 {
