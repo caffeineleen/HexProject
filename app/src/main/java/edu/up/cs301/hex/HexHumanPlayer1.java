@@ -133,6 +133,7 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         if (p == null) {
             surfaceView.flash(Color.RED, 50);
         } else {
+            surfaceView.flash(Color.GREEN, 50);
             HexMoveAction action = new HexMoveAction(this, p.y, p.x);
             Log.i("onTouch", "Human player sending HexMA ...");
             game.sendAction(action);

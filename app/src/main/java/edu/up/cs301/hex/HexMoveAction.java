@@ -36,6 +36,8 @@ public class HexMoveAction extends GameAction
         // set the row and column as passed to us
         this.row = Math.max(0, Math.min(2, row));
         this.col = Math.max(0, Math.min(2, col));
+
+
     }
 
     /**

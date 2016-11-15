@@ -24,6 +24,7 @@ public class HexState extends GameState
 	
 	// the 13x13 array of char that represents the X's and O's on the board
     private char[][] board;
+    public int[][] hexBoard;
     
     // an int that tells whose move it is
     private int playerToMove;
@@ -46,6 +47,12 @@ public class HexState extends GameState
         		board[i][j] = ' ';
         	}
         }
+        hexBoard = new int[13][13];
+        for (int i = 0; i < 13; i++) {
+            for (int j = 0; j < 13; j++) {
+                hexBoard[i][j] = 0;
+            }
+        }
         
         // make it player 0's move
         playerToMove = 0;
@@ -59,7 +66,7 @@ public class HexState extends GameState
      */
     public HexState(HexState original)
     {
-    	// create a new 3x3 array, and copy the values from
+    	// create a new 13x13 array, and copy the values from
     	// the original
     	board = new char[3][3];
     	for (int i = 0; i < 3; i++) {
@@ -67,6 +74,12 @@ public class HexState extends GameState
     			board[i][j] = original.board[i][j];
     		}
     	}
+        hexBoard = new int[13][13];
+        for (int i = 0; i < 13; i++) {
+            for (int j = 0; j < 13; j++) {
+                hexBoard[i][j] = original.hexBoard[i][j];
+            }
+        }
     	
     	// copy the player-to-move information
         playerToMove = original.playerToMove;
