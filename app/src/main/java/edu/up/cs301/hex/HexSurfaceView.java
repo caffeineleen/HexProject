@@ -125,7 +125,9 @@ public class HexSurfaceView extends FlashSurfaceView {
         //g.drawCircle(100,100, 50, p);
 
 
-
+        if (state == null) {
+            return;
+        }
 
         int distance = startX;
         for(int i = 0; i < 11; i++) {
@@ -135,12 +137,22 @@ public class HexSurfaceView extends FlashSurfaceView {
             distance += 50;
         }
 
-        drawStone(4,4,1,g);
-        drawStone(4,5,2,g);
-        drawStone(4,8,1,g);
-        drawStone(10,10,2,g);
-        drawStone(11,6,1,g);
-        drawStone(1,1,2,g);
+
+
+        for(int i = 1; i < 12; i++) {
+            for(int j = 1; j < 12; j++){
+                int value = state.getStone(i,j);
+                int thing = value;
+                if(value >= 100 && value < 200){
+                    drawStone(i,j,1,g);
+                }
+                if(value >= 200) {
+                    drawStone(i,j,2,g);
+                }
+            }
+        }
+
+
 
 
 

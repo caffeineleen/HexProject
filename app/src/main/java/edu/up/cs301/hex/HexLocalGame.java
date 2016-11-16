@@ -159,15 +159,16 @@ public class HexLocalGame extends LocalGame {
 		int playerId = getPlayerIdx(tm.getPlayer());
 
 		// if that space is not blank, indicate an illegal move
-		if (state.getPiece(row, col) != ' ') {
-			return false;
-		}
+		//if (state.getPiece(row, col) != ' ') {
+		//	return false;
+		//}
 
 		// get the 0/1 id of the player whose move it is
 		int whoseMove = state.getWhoseMove();
 
 		// place the player's piece on the selected square
 		state.setPiece(row, col, mark[playerId]);
+		state.setStone(row,col, 100);
 
 		// make it the other player's turn
 		state.setWhoseMove(1-whoseMove);

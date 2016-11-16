@@ -53,6 +53,10 @@ public class HexState extends GameState
                 hexBoard[i][j] = 0;
             }
         }
+
+        hexBoard[1][1] = 100;
+        hexBoard[4][3] = 200;
+
         
         // make it player 0's move
         playerToMove = 0;
@@ -105,6 +109,12 @@ public class HexState extends GameState
         return board[row][col];
     }
 
+    public int getStone(int row, int col) {
+        //if (hexBoard == null || row < 0 || col < 0) return '?';
+        //if (row >= hexBoard.length || col >= hexBoard[row].length) return '?';
+        return hexBoard[row][col];
+    }
+
     /**
      * Sets a piece on a square
      * 
@@ -124,10 +134,13 @@ public class HexState extends GameState
         board[row][col] = piece;
     }
 
-    public void placeStone(int turn, int x, int y)
-    {
-
+    public void setStone(int row, int col, int value) {
+        //if (board == null || row < 0 || col < 0) return;
+        //if (row >= board.length || col >= board[row].length) return;
+        hexBoard[row][col] = value;
     }
+
+
 
     
     /**
