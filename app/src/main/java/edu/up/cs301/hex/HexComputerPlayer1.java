@@ -42,7 +42,7 @@ public class HexComputerPlayer1 extends GameComputerPlayer
     	int yVal = (int)(13*Math.random());
 
     	// delay for a second to make opponent think we're thinking
-    	sleep(1000);
+    	//sleep(1000);
 
     	// Submit our move to the game object. We haven't even checked it it's
     	// our turn, or that that position is unoccupied. If it was not our turn,

@@ -119,12 +119,6 @@ public class HexSurfaceView extends FlashSurfaceView {
 
         // paint the hex board
 
-        //Paint p = new Paint();
-        //p.setColor(Color.WHITE);
-        //g.drawCircle(500,500, 100, p);
-        //g.drawCircle(100,100, 50, p);
-
-
         if (state == null) {
             return;
         }
@@ -137,8 +131,6 @@ public class HexSurfaceView extends FlashSurfaceView {
             distance += 50;
         }
 
-
-
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++){
                 int value = state.getStone(i,j);
@@ -150,6 +142,32 @@ public class HexSurfaceView extends FlashSurfaceView {
                     drawStone(i,j,2,g);
                 }
             }
+        }
+
+
+
+
+        double w = 100;
+        double h = 0.8 * w;
+        double d = startX;
+        double e = startY + 30;
+
+        Paint p3 = new Paint();
+        p3.setColor(Color.RED);
+
+        for (int j=0; j<11; j++)
+        {
+            for (int i=0; i<11; i++)
+            {
+                Path path3 = new Path();
+                path3.moveTo((100*i)+(float)d,(float)(h*j+e));
+                path3.lineTo((100*i)+(float)d + 100,(float)(h*j+e));
+                path3.lineTo((100*i)+(float)d + 100,(float)((h*(j+1)-(0.289*w))+e));
+                path3.lineTo((100*i)+(float)d,(float)((h*(j+1)-(0.289*w))+e));
+                path3.lineTo((100*i)+(float)d,(float)(h*j+e));
+                //g.drawPath(path3,p3);
+            }
+            d += (w/2);
         }
 
 
@@ -289,14 +307,14 @@ public class HexSurfaceView extends FlashSurfaceView {
      */
     public Point mapPixelToSquare(int fingerX, int fingerY) {
 
-
-
-
+        //public int startX = 220;
+        //public int startY = 50;
 
 
         //variables for width and height of each hexagon, width is the one to be manually entered (height is dependent on width)
         double w = 100;
-        double h = 0.866 * w;
+        //double h = 0.866 * w;
+        double h = 0.8 * w;
 
         //variables for starting x and y values of the grid (coordinates of the top left corner)
         double beginX = (double)startX;
@@ -304,6 +322,7 @@ public class HexSurfaceView extends FlashSurfaceView {
 
         //starting point of row shift, which should always be startX, but I'm keeping it in a separate variable because we increment it later on
         double d = beginX;
+        double e = beginY + 30;
 
         //variable to hold whether or not a touch finds a value on the board
         boolean found = false;
@@ -318,7 +337,7 @@ public class HexSurfaceView extends FlashSurfaceView {
             {
                 for (i=0; i<11; i++)
                 {
-                    if(fingerX>(w*i)+d && fingerX<(w*(i+1))+d && fingerY>(h*j) && fingerY<(h*(j+1)-(0.289*w)))
+                    if(fingerX>(w*i)+d && fingerX<(w*(i+1))+d && fingerY>(h*j)+e && fingerY<(h*(j+1)-(0.289*w))+e)
                     {
                         found = true;
                         break search;
@@ -332,7 +351,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         {
             if(state.hexBoard[i+1][j+1] == 0)
             {
-                //placeStone(turn, i+1,j+1);
+
                 return new Point(i+1, j+1);
             }
             else

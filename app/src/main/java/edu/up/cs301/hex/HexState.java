@@ -54,8 +54,8 @@ public class HexState extends GameState
             }
         }
 
-        hexBoard[1][1] = 100;
-        hexBoard[4][3] = 200;
+        //hexBoard[2][2] = 100;
+        //hexBoard[4][3] = 200;
 
         
         // make it player 0's move

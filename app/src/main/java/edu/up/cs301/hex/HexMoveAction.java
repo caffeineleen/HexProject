@@ -25,17 +25,22 @@ public class HexMoveAction extends GameAction
      * Constructor for HexMoveAction
      *
      * @param player the player making the move
-     * @param row the row of the square selected (0-2)
+     * @param row the row of the square selected (1-11)
      * @param col the column of the square selected
      */
-    public HexMoveAction(GamePlayer player, int row, int col)
+    public HexMoveAction(GamePlayer player, int col, int row)
     {
         // invoke superclass constructor to set the player
         super(player);
 
         // set the row and column as passed to us
-        this.row = Math.max(0, Math.min(2, row));
-        this.col = Math.max(0, Math.min(2, col));
+        //this.row = Math.max(0, Math.min(12, row));
+        //this.col = Math.max(0, Math.min(12, col));
+
+        this.row = row;
+        this.col = col;
+
+
 
 
     }
