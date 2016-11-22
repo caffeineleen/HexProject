@@ -22,7 +22,7 @@ public class HexLocalGame extends LocalGame {
 
 	// the marks for player 0 and player 1, respectively
 	private final static char[] mark = {'X','O'};
-	private final static int[] stone = {100,200};
+	private final static int[] stone = {102,202};
 
 
 	// the number of moves that have been played so far, used to
@@ -168,9 +168,18 @@ public class HexLocalGame extends LocalGame {
 		// get the 0/1 id of the player whose move it is
 		int whoseMove = state.getWhoseMove();
 
-		// place the player's piece on the selected square
-		state.setPiece(row,col, mark[playerId]);
-		state.setStone(row,col, stone[playerId]);
+		// place the player's stone on the selected square
+		state.setPiece(row, col, mark[playerId]);
+		state.setStone(row, col, stone[playerId]);
+
+		int one = stone[0];
+		int two = stone[1];
+
+		stone[playerId]++;
+
+
+		int yummy = 0;
+
 
 		// make it the other player's turn
 		state.setWhoseMove(1-whoseMove);

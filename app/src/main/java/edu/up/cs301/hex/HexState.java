@@ -160,4 +160,5 @@ public class HexState extends GameState
     public void setWhoseMove(int id) {
     	playerToMove = id;
     }
+
 }

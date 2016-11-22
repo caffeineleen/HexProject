@@ -282,7 +282,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         if(color == 1){
             stone.setColor(Color.RED);
         }
-        else
+        else if(color == 2)
         {
             stone.setColor(Color.BLUE);
         }
