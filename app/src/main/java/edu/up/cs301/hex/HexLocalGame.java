@@ -22,6 +22,8 @@ public class HexLocalGame extends LocalGame {
 
 	// the marks for player 0 and player 1, respectively
 	private final static char[] mark = {'X','O'};
+	private final static int[] stone = {100,200};
+
 
 	// the number of moves that have been played so far, used to
 	// determine whether the game is over
@@ -95,7 +97,7 @@ public class HexLocalGame extends LocalGame {
 		// if resultChar is blank, we found no winner, so return null,
 		// unless the board is filled up. In that case, it's a cat's game.
 		if (resultChar == ' ') {
-			if  (moveCount >= 9) {
+			if  (moveCount >= 121) {
 				// no winner, but all 9 spots have been filled
 				return "It's a cat's game.";
 			}
@@ -167,8 +169,8 @@ public class HexLocalGame extends LocalGame {
 		int whoseMove = state.getWhoseMove();
 
 		// place the player's piece on the selected square
-		state.setPiece(row, col, mark[playerId]);
-		state.setStone(row,col, 100);
+		state.setPiece(row,col, mark[playerId]);
+		state.setStone(row,col, stone[playerId]);
 
 		// make it the other player's turn
 		state.setWhoseMove(1-whoseMove);

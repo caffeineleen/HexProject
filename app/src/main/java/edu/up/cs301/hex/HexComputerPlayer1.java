@@ -33,23 +33,31 @@ public class HexComputerPlayer1 extends GameComputerPlayer
      */
     @Override
     protected void receiveInfo(GameInfo info) {
-    	
-    	// if it was a "not your turn" message, just ignore it
-    	if (info instanceof NotYourTurnInfo) return;
-    	
-    	// pick x and y positions at random (0-12)
-    	int xVal = (int)(13*Math.random());
-    	int yVal = (int)(13*Math.random());
 
-    	// delay for a second to make opponent think we're thinking
-    	//sleep(1000);
+        boolean found = false;
+        while(found == false) {
+            // if it was a "not your turn" message, just ignore it
+            if (info instanceof NotYourTurnInfo) return;
 
-    	// Submit our move to the game object. We haven't even checked it it's
-    	// our turn, or that that position is unoccupied. If it was not our turn,
-    	// we'll get a message back that we'll ignore. If it was an illegal move,
-    	// we'll end up here again (and possibly again, and again). At some point,
-    	// we'll end up randomly pick a move that is legal.
-    	game.sendAction(new HexMoveAction(this, yVal, xVal));
-    	
+            // pick x and y positions at random (0-12)
+            int xVal = (int) (11 * Math.random()) + 1;
+            int yVal = (int) (11 * Math.random()) + 1;
+
+            HexState mystate = (HexState) info;
+
+            if (mystate.hexBoard[xVal][yVal] == 0) {
+
+                // delay for a second to make opponent think we're thinking
+                sleep(500);
+
+                // Submit our move to the game object. We haven't even checked it it's
+                // our turn, or that that position is unoccupied. If it was not our turn,
+                // we'll get a message back that we'll ignore. If it was an illegal move,
+                // we'll end up here again (and possibly again, and again). At some point,
+                // we'll end up randomly pick a move that is legal.
+                game.sendAction(new HexMoveAction(this, yVal, xVal));
+                found = true;
+            }
+        }
     }
 }

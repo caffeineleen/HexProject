@@ -147,28 +147,28 @@ public class HexSurfaceView extends FlashSurfaceView {
 
 
 
-        double w = 100;
-        double h = 0.8 * w;
-        double d = startX;
-        double e = startY + 30;
-
-        Paint p3 = new Paint();
-        p3.setColor(Color.RED);
-
-        for (int j=0; j<11; j++)
-        {
-            for (int i=0; i<11; i++)
-            {
-                Path path3 = new Path();
-                path3.moveTo((100*i)+(float)d,(float)(h*j+e));
-                path3.lineTo((100*i)+(float)d + 100,(float)(h*j+e));
-                path3.lineTo((100*i)+(float)d + 100,(float)((h*(j+1)-(0.289*w))+e));
-                path3.lineTo((100*i)+(float)d,(float)((h*(j+1)-(0.289*w))+e));
-                path3.lineTo((100*i)+(float)d,(float)(h*j+e));
-                //g.drawPath(path3,p3);
-            }
-            d += (w/2);
-        }
+//        double w = 100;
+//        double h = 0.8 * w;
+//        double d = startX;
+//        double e = startY + 30;
+//
+//        Paint p3 = new Paint();
+//        p3.setColor(Color.RED);
+//
+//        for (int j=0; j<11; j++)
+//        {
+//            for (int i=0; i<11; i++)
+//            {
+//                Path path3 = new Path();
+//                path3.moveTo((100*i)+(float)d,(float)(h*j+e));
+//                path3.lineTo((100*i)+(float)d + 100,(float)(h*j+e));
+//                path3.lineTo((100*i)+(float)d + 100,(float)((h*(j+1)-(0.289*w))+e));
+//                path3.lineTo((100*i)+(float)d,(float)((h*(j+1)-(0.289*w))+e));
+//                path3.lineTo((100*i)+(float)d,(float)(h*j+e));
+//                g.drawPath(path3,p3);
+//            }
+//            d += (w/2);
+//        }
 
 
 
