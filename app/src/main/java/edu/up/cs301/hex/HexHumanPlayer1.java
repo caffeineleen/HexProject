@@ -1,11 +1,13 @@
 package edu.up.cs301.hex;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
@@ -24,7 +26,7 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * @author Kathleen Elisabeth Smith
  * @version November 2016
  */
-public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchListener {
+public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchListener, View.OnClickListener{
 
     // the current activity
     private Activity myActivity;
@@ -88,6 +90,11 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         surfaceView = (HexSurfaceView)myActivity.findViewById(R.id.surfaceView);
         Log.i("set listener","OnTouch");
         surfaceView.setOnTouchListener(this);
+
+        Button newgame = (Button) activity.findViewById(R.id.newgame);
+        newgame.setOnClickListener(this);
+
+
     }
 
     /**
@@ -146,4 +153,12 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
     }
 
 
+    public void onClick(View view)
+    {
+        if (view.getId() == R.id.newgame) {
+            surfaceView.flash(Color.BLACK, 200);
+            int[] yay = {0};
+            yay[1] = 0;
+        }
+    }
 }

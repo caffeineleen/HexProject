@@ -11,4 +11,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
 
+    <Button
+        android:text="Quit Game"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/newgame"
+        android:background="@color/black"
+        android:layout_height="135dp" />
+
 </RelativeLayout>
