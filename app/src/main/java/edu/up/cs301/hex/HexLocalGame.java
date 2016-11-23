@@ -96,20 +96,34 @@ public class HexLocalGame extends LocalGame {
 
 		// if resultChar is blank, we found no winner, so return null,
 		// unless the board is filled up. In that case, it's a cat's game.
-		if (resultChar == ' ') {
-			if  (moveCount >= 121) {
-				// no winner, but all 9 spots have been filled
-				return "It's a cat's game.";
-			}
-			else {
-				return null; // no winner, but game not over
-			}
+//		if (resultChar == ' ') {
+//			if  (moveCount >= 121) {
+//				// no winner, but all 9 spots have been filled
+//				return "It's a cat's game.";
+//			}
+//			else {
+//				return null; // no winner, but game not over
+//			}
+//		}
+
+		if (state.getStone(0,0) == state.getStone(12,12))
+		{
+			return "Red player Wins!";
+		}
+		else if (state.getStone(12,0) == state.getStone(0,12))
+		{
+			return "Blue player Wins!";
+		}
+		else
+		{
+			return null;
 		}
 
 		// if we get here, then we've found a winner, so return the 0/1
 		// value that corresponds to that mark; then return a message
-		int gameWinner = resultChar == mark[0] ? 0 : 1;
-		return playerNames[gameWinner]+" is the winner.";
+
+		//int gameWinner = resultChar == mark[0] ? 0 : 1;
+		//return playerNames[gameWinner]+" is the winner.";
 	}
 
 	/**
@@ -172,14 +186,69 @@ public class HexLocalGame extends LocalGame {
 		state.setPiece(row, col, mark[playerId]);
 		state.setStone(row, col, stone[playerId]);
 
+
+		int lmao = state.getStone(2,2);
+
+		int x = tm.getRow();
+		int y = tm.getCol();
+
+		int[] xAdj = {0,1,-1,1,-1,0};
+		int[] yAdj = {-1,-1,0,0,1,1};
+
+		if (stone[playerId] >= 100 && stone[playerId] < 200)
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				if (state.getStone(x+xAdj[i],y+yAdj[i]) >= 100 && state.getStone(x+xAdj[i],y+yAdj[i]) < 200 && state.getStone(x+xAdj[i],y+yAdj[i]) != state.getStone(x,y))
+				{
+					int temp = state.getStone(x+xAdj[i],y+yAdj[i]);
+					for(int j = 0; j < 13; j++)
+					{
+						for(int k = 0; k < 13; k++)
+						{
+							if (state.getStone(j,k) == temp)
+							{
+								state.setStone(j,k,state.getStone(x,y));
+							}
+						}
+					}
+				}
+			}
+		}
+		else if (stone[playerId] >= 200)
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				if (state.getStone(x+xAdj[i],y+yAdj[i]) >= 200 && state.getStone(x+xAdj[i],y+yAdj[i]) != state.getStone(x,y))
+				{
+					int temp = state.getStone(x+xAdj[i],y+yAdj[i]);
+					for(int j = 0; j < 13; j++)
+					{
+						for(int k = 0; k < 13; k++)
+						{
+							if (state.getStone(j,k) == temp)
+							{
+								state.setStone(j,k,state.getStone(x,y));
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+
 		int one = stone[0];
 		int two = stone[1];
 
 		stone[playerId]++;
-
-
-		int yummy = 0;
-
 
 		// make it the other player's turn
 		state.setWhoseMove(1-whoseMove);

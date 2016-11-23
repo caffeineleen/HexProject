@@ -15,7 +15,7 @@ import edu.up.cs301.game.infoMsg.IllegalMoveInfo;
 import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
 
 /**
- * A GUI that allows a human to play tic-tac-toe. Moves are made by clicking
+ * A GUI that allows a human to play hex. Moves are made by clicking
  * regions on a canvas
  *
  * @author Justin Jacobs

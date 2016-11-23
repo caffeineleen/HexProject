@@ -38,7 +38,7 @@ ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidMani
 	android:label
 		ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:15:9-41
 	android:icon
-		ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:14:9-45
+		ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:14:9-39
 	android:theme
 		ADDED from /Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/AndroidManifest.xml:16:9-40
 activity#edu.up.cs301.hex.HexMainActivity

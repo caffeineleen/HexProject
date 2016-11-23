@@ -37,7 +37,7 @@ public class HexSurfaceView extends FlashSurfaceView {
     // is 28% high/wide, and the lines between squares are 3%
     private final static float BORDER_PERCENT = 5; // size of the border
     private final static float SQUARE_SIZE_PERCENT = 28; // size of each of our 9 squares
-    private final static float LINE_WIDTH_PERCENT = 3; // width of a tic-tac-toe line
+    private final static float LINE_WIDTH_PERCENT = 3; // width of a hex line
     private final static float SQUARE_DELTA_PERCENT = SQUARE_SIZE_PERCENT
             + LINE_WIDTH_PERCENT; // distance from left (or top) edge of square to the next one
 
@@ -97,7 +97,7 @@ public class HexSurfaceView extends FlashSurfaceView {
      * 		the color to paint the hex lines, and the X's and O's
      */
     public int backgroundColor() {
-        return Color.BLUE;
+        return Color.rgb(191,117,209);
     }
 
     /**
@@ -135,28 +135,11 @@ public class HexSurfaceView extends FlashSurfaceView {
             for(int j = 1; j < 12; j++){
                 int value = state.getStone(i,j);
                 int thing = value;
-                //if(value >= 100 && value < 200){
-                //    drawStone(i,j,1,g);
-                //}
-                if(value >= 200) {
-                    drawStone(i,j,2,g);
-                }
-
-                if(value == 102)
-                {
+                if(value >= 100 && value < 200){
                     drawStone(i,j,1,g);
                 }
-                if(value == 103)
-                {
-                    drawStone(i,j,3,g);
-                }
-                if(value == 104)
-                {
-                    drawStone(i,j,4,g);
-                }
-                if(value >= 105 && value < 200)
-                {
-                    drawStone(i,j,5,g);
+                if(value >= 200) {
+                    drawStone(i,j,2,g);
                 }
             }
         }
@@ -302,15 +285,6 @@ public class HexSurfaceView extends FlashSurfaceView {
         else if(color == 2)
         {
             stone.setColor(Color.BLUE);
-        }
-        if(color == 3){
-            stone.setColor(Color.YELLOW);
-        }
-        if(color == 4){
-            stone.setColor(Color.MAGENTA);
-        }
-        if(color == 5){
-            stone.setColor(Color.rgb(255,100,150));
         }
 
         g.drawCircle(x*100-70+250+(y-1)*50,y*80-52+80,35,stone);

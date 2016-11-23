@@ -58,19 +58,19 @@ public class HexState extends GameState
 
         for (int i=0; i<12; i++)
         {
-            board[i][0] = 100;
+            hexBoard[i][0] = 100;
         }
         for (int i=1; i<13; i++)
         {
-            board[i][12] = 101;
+            hexBoard[i][12] = 101;
         }
         for (int i=1; i<13; i++)
         {
-            board[0][i] = 200;
+            hexBoard[0][i] = 200;
         }
         for (int i=0; i<12; i++)
         {
-            board[12][i] = 201;
+            hexBoard[12][i] = 201;
         }
 
 

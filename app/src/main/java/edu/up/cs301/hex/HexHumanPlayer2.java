@@ -155,7 +155,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 		// convert to an integer
 		int val = Integer.parseInt(s);
 		
-		// map the integer to a (2D) tic-tac-toe coordinate
+		// map the integer to a (2D) hex coordinate
 		int[] coord = mapNumberToCoord(val);
 		
 		// send a move action to the game

@@ -60,7 +60,7 @@ public class HexMainActivity extends GameMainActivity {
 		});
 
 		// Create a game configuration class for Hex
-		GameConfig defaultConfig = new GameConfig(playerTypes, 2,2, "Tic-Tac-Toe", PORT_NUMBER);
+		GameConfig defaultConfig = new GameConfig(playerTypes, 2,2, "Hex", PORT_NUMBER);
 
 		// Add the default players
 		defaultConfig.addPlayer("Human", 0); // yellow-on-blue GUI
