@@ -31,8 +31,8 @@ public class HexMainActivity extends GameMainActivity {
 		// Define the allowed player types
 		ArrayList<GamePlayerType> playerTypes = new ArrayList<GamePlayerType>();
 		
-		// yellow-on-blue GUI
-		playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
+		// red human GUI
+		playerTypes.add(new GamePlayerType("Local Human Player (red player)") {
 			public GamePlayer createPlayer(String name) {
 				return new HexHumanPlayer1(name, R.layout.hex_human_player1);
 			}
@@ -44,16 +44,16 @@ public class HexMainActivity extends GameMainActivity {
 				return new HexHumanPlayer2(name);
 			}
 		});
-		
+
 		// dumb computer player
-		playerTypes.add(new GamePlayerType("Computer Player (dumb)") {
+		playerTypes.add(new GamePlayerType("Computer Player (dumb blue player)") {
 			public GamePlayer createPlayer(String name) {
 				return new HexComputerPlayer1(name);
 			}
 		});
 		
 		// smarter computer player
-		playerTypes.add(new GamePlayerType("Computer Player (smart)") {
+		playerTypes.add(new GamePlayerType("Computer Player (smart blue player)") {
 			public GamePlayer createPlayer(String name) {
 				return new HexComputerPlayer2(name);
 			}

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/hex_human_player2.xml",
-        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/hex_human_player2.xml"
-    },
-    {
         "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_config_main.xml",
         "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/game_config_main.xml"
+    },
+    {
+        "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/hex_human_player2.xml",
+        "source": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/src/main/res/layout/hex_human_player2.xml"
     },
     {
         "merged": "/Users/keons/Desktop/Comp_Science/CS 301/Hex/app/build/intermediates/res/merged/debug/layout/game_remote_tab.xml",

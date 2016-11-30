@@ -155,10 +155,7 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
 
     public void onClick(View view)
     {
-        if (view.getId() == R.id.newgame) {
-            surfaceView.flash(Color.BLACK, 200);
-            int[] yay = {0};
-            yay[1] = 0;
-        }
+        myActivity.finish();
+
     }
 }

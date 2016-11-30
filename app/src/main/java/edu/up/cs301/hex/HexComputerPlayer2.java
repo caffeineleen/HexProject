@@ -67,70 +67,8 @@ public class HexComputerPlayer2 extends GameComputerPlayer
 		//sleep(1000);
 
 
-
-
-
-
-
-
-
-
-
-		// if we find a win, select that move
-//		Point win = findWin(myState, piece);
-//		if (win != null) {
-//			game.sendAction(new HexMoveAction(this, win.y, win.x));
-//			return;
-//		}
-//
-//		// if we find a threat of a loss (i.e., a direct win for out opponent),
-//		// select that position as a blocking move.
-//		char opponentPiece = piece == 'X' ? 'O' : 'X';
-//		Point loss = findWin(myState, opponentPiece);
-//		if (loss != null) {
-//			game.sendAction(new HexMoveAction(this, loss.y, loss.x));
-//			return;
-//		}
-//
-//		// otherwise, make a move that is randomly selected from the
-//		// blank squares ...
-//
-//		// count the spaces
-//		int spaceCount = 0;
-//		for (int i = 0; i < 13; i++) {
-//			for (int j = 0; j < 13; j++) {
-//				if (myState.getPiece(j, i) == ' ') spaceCount++;
-//			}
-//		}
-//
-//		// generate a random integer in range 0 through #spaces-1
-//		int selectCount = (int)(spaceCount*Math.random());
-//
-//		// re-find the space that corresponds to the random integer we
-//		// just generated; make that move
-//		for (int i = 0; i < 13; i++) {
-//			for (int j = 0; j < 13; j++) {
-//				if (myState.getPiece(j, i) == ' ') {
-//					if (selectCount == 0) {
-//						// make the move
-//						game.sendAction(new HexMoveAction(this, j, i));
-//						return;
-//					}
-//					selectCount--;
-//				}
-//			}
-//		}
-
-
-
-
-
-
-
-
-
-		for(int i = 1; i < 11; i++) {
-			for(int j = 1; j < 11; j++) {
+		for(int i = 1; i < 12; i++) {
+			for(int j = 1; j < 12; j++) {
 				double ran = Math.random();
 				if (ran < .166 &&myState.getStone(j, i) > 200 && myState.getStone(j+1, i+1) == 0) {
 					game.sendAction(new HexMoveAction(this, i+1, j+1));
@@ -157,15 +95,17 @@ public class HexComputerPlayer2 extends GameComputerPlayer
 					return;
 				}
 
-				else if(myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1,i+1) == 0) {
-					game.sendAction(new HexMoveAction(this, i+1, j+1));
+				else if(myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200) {
+					int xVal = (int) (11 * Math.random() + 1);
+					int yVal = (int) (11 * Math.random() + 1);
+					game.sendAction(new HexMoveAction(this, xVal, yVal));
 					return;
 				}
 			}
 		}
 
-		for(int i = 1; i < 11; i++) {
-			for(int j = 1; j < 11; j++) {
+		for(int i = 1; i < 12; i++) {
+			for(int j = 1; j < 12; j++) {
 				double ran = Math.random();
 				if (ran < .125 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1, i+1) == 0) {
 					game.sendAction(new HexMoveAction(this, i+1, j+1));
@@ -202,30 +142,6 @@ public class HexComputerPlayer2 extends GameComputerPlayer
 
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	}// receiveInfo

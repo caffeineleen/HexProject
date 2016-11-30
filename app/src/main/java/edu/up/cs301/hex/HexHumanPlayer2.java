@@ -17,7 +17,7 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
 /**
  * A human (i.e., GUI) version of a hex player that gives the user
  * the "game of 33" view.
- * 
+ *
  * @author Justin Jacobs
  * @author Navreen Kaur
  * @author Nathan Relyea
@@ -25,16 +25,16 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
  * @version November 2016
  */
 public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener {
-	
+
 	// the activity under which we're running
 	GameMainActivity myActivity = null;
-	
+
 	// the game's state
 	HexState state = null;
-	
+
 	/**
 	 * constuctor
-	 * 
+	 *
 	 * @param name
 	 * 		the player's name
 	 */
@@ -54,7 +54,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 			{R.id.padding14Top, R.id.padding14Bot},
 			{R.id.padding15Top, R.id.padding15Bot},
 	};
-	
+
 	// android ID values for the button objects
 	private static final int[] buttonIndices = {
 			R.id.button7,
@@ -67,16 +67,16 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 			R.id.button14,
 			R.id.button15,
 	};
-	
+
 	// an array to hold our padding objects. It consists of 9 two-element arrays,
 	// each two-element array contains the upper and lower padding objects for
 	// a particular button, which are stored in order from 7 to 15. Element 0, for
 	// example, contains the two padding objects for the '7' button.
 	private LinearLayout[][] buttonPaddings;
-	
+
 	// our 9 button objects, in order from 7 to 15
 	private Button[] numberedButtons;
-	
+
 	/**
 	 * initializes the GUI's button array so that we can access them
 	 * by position
@@ -84,7 +84,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 	private void initializeButtons() {
 		// create the button array
 		numberedButtons = new Button[buttonIndices.length];
-		
+
 		// fill the array using the indices in the buttonIndices array
 		for (int i = 0; i < numberedButtons.length; i++) {
 			numberedButtons[i] =
@@ -97,10 +97,10 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 	 * modify them in order to change the positions of buttons.
 	 */
 	private void initializePaddingObjects() {
-		
+
 		// create the array
 		buttonPaddings = new LinearLayout[paddingIndices.length][];
-		
+
 		// create a 2D array of button-padding object that parallels the
 		// corresponding index-array
 		for (int i = 0; i < buttonPaddings.length; i++) {
@@ -119,25 +119,25 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 	 * knows what their game-position and opponents' names are.
 	 */
 	protected void initAfterReady() {
-		
+
 		// update the title, including the player names
 		myActivity.setTitle("Game of 33: "+allPlayerNames[0]+" vs. "+allPlayerNames[1]);
-		
+
 		// update the TextFields that contain the players' names
 		updatePlayerNames();
 	}
-	
+
 	/**
 	 * Updates the player-name TextFields
 	 */
 	private void updatePlayerNames() {
 		// if we haven't yet gotten the player names, ignore
 		if (allPlayerNames == null) return;
-		
+
 		// get the two text fields
 		TextView oppName = (TextView)myActivity.findViewById(R.id.opponentName);
 		TextView myName = (TextView)myActivity.findViewById(R.id.thisPlayerName);
-		
+
 		// update them each with the appropriate name, so that the current player
 		// is listed on the bottom.
 		oppName.setText(allPlayerNames[1-playerNum]);
@@ -151,17 +151,17 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 		// get the text from the button, which will denote an
 		// integer in the range 7..15
 		String s = ((Button)v).getText().toString();
-		
+
 		// convert to an integer
 		int val = Integer.parseInt(s);
-		
-		// map the integer to a (2D) hex coordinate
+
+		// map the integer to a (2D) tic-tac-toe coordinate
 		int[] coord = mapNumberToCoord(val);
-		
+
 		// send a move action to the game
 		game.sendAction(new HexMoveAction(this, coord[0], coord[1]));
 	}
-	
+
 	/**
 	 * sets the current player as the activity's GUI
 	 */
@@ -172,16 +172,16 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 
 		// Load the layout resource for the new configuration
 		activity.setContentView(R.layout.hex_human_player2);
-		
+
 		// initialize the button-array
 		initializeButtons();
-		
+
 		// intialize the array of padding objects
 		initializePaddingObjects();
-		
+
 		// put the player names into the GUI
 		updatePlayerNames();
-		
+
 		// listen to each of the buttons
 		for (int i = 0; i < numberedButtons.length; i++) {
 			numberedButtons[i].setOnClickListener(this);
@@ -195,7 +195,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 
 	/**
 	 * returns the GUI's top view
-	 * 
+	 *
 	 * @return
 	 * 		the GUI's top view
 	 */
@@ -206,7 +206,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 
 	/**
 	 * Callback method, called when player gets a message
-	 * 
+	 *
 	 * @param info
 	 * 		the message
 	 */
@@ -227,7 +227,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 			setButtonLocationsAndColors();
 		}
 	}
-   
+
     // tells the mapping between numbers in the game of 33 and the
     // corresponding square in the hex game
     private static int[][] mapping = {
@@ -241,31 +241,31 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
         {0,0}, // value = 14
         {1,2}, // value = 15
     };
-    
+
     /**
      * maps a game-of-33 number to the corresponding hex coordinate
-     * 
+     *
      * @param x the number to map
      * @return  a two-element array of int containing the hex
      *   coordinates if the number is in the right range; otherwise, null
      */
     private static int[] mapNumberToCoord(int x) {
-    
+
         // subtract 7 to reflect that the 'mapping' array begins with the
         // value for 7
         int idx = x-7;
-        
+
         // if we're out of range return null
         if (idx < 0 || idx >= mapping.length) return null;
-        
+
         // number is in range: return corresponding hex coordinate
         return mapping[idx];
     }
-    
+
     // objects for setting the weight of a LinearLayout to either 0 or 1
     private static LinearLayout.LayoutParams pad0 = new LinearLayout.LayoutParams(0, 0, 0);
     private static LinearLayout.LayoutParams pad1 = new LinearLayout.LayoutParams(0, 0, 1);
-    
+
     /**
      * sets the location and the color for each of the buttons
      */
@@ -274,10 +274,10 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
 			setButtonPositionAndColor(i);
 		}
 	}
-    
+
 	/**
 	 * sets the location and color for the given button
-	 * 
+	 *
 	 * @param buttonNumber
 	 * 		the number on the button (7-15) that we want to handle
 	 */
@@ -286,22 +286,22 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     	// ignore
     	if (state == null) return;
     	if (buttonNumber < 7 || buttonNumber > 15) return;
-    	
+
     	// find the value of the piece (X, O or blank) by mapping
     	// the button number to the hex coordinate
     	int[] coord = mapNumberToCoord(buttonNumber);
     	char piece = state.getPiece(coord[0], coord[1]);
-    	
+
     	// get the value of my piece and of my opponent's piece,
     	// based on whether I am player 0 or player 1
     	char myPiece = "XO".charAt(playerNum);
     	char oppPiece = "XO".charAt(1-playerNum);
-    	
+
     	// fetch the array containing the pair of padding widgets
     	// for the current number; also get the Button widget
     	LinearLayout[] paddings = buttonPaddings[buttonNumber-7];
     	Button button = numberedButtons[buttonNumber-7];
-    	
+
     	// if we're looking at my piece:
     	// - move the button down on the screen
     	// - set button to white-on-blue
@@ -342,10 +342,10 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     	}
     	button.setEnabled(state.getWhoseMove() == playerNum);
     }
-    
+
     /**
      * gets player-number that has selected the corresponding number
-     * 
+     *
      * @param number
      * 		the piece number
      * @return
@@ -357,26 +357,26 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     		// if we don't yet have state, no one owns anything
     		return -1;
     	}
-    	
+
     	// map the player number to the corresponding hex coordinate
     	int[] coord = mapNumberToCoord(number);
-    	
+
     	// return -1 (no one owns piece) if the number was not in range
     	if (coord == null) {
     		return -1;
     	}
-    	
+
     	// return 0 if the piece is an 'X', 1 if the piece is an 'O'; otherwise -1
     	return "XO".indexOf(state.getPiece(coord[0], coord[1]));
-    	
+
     }
-    
+
     /**
      * callback-method, called when the game is over. The effect
      * here is that if there is a winning combination, that those
      * buttons would be highlighted black-on-green, so that the
      * user sees the "win".
-     * 
+     *
      * @param msg
      * 		the message that tells the result of the game
      */
@@ -411,7 +411,7 @@ public class HexHumanPlayer2 extends GameHumanPlayer implements OnClickListener 
     			}
     		}
     	}
-    	
+
     	// do the "game is over" behavior that my superclass would have done (which should include
     	// showing the user a pop-up message with the game's result
     	super.gameIsOver(msg);
