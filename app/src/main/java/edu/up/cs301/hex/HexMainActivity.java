@@ -38,13 +38,6 @@ public class HexMainActivity extends GameMainActivity {
 			}
 		});
 
-		// game of 33
-		playerTypes.add(new GamePlayerType("Local Human Player (game of 33)") {
-			public GamePlayer createPlayer(String name) {
-				return new HexHumanPlayer2(name);
-			}
-		});
-
 		// dumb computer player
 		playerTypes.add(new GamePlayerType("Computer Player (dumb blue player)") {
 			public GamePlayer createPlayer(String name) {

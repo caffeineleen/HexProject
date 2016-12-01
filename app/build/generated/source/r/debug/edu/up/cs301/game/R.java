@@ -31,42 +31,13 @@ public final class R {
     }
     public static final class id {
         public static final int addPlayerButton=0x7f0a000d;
-        public static final int backButton3=0x7f0a0037;
-        public static final int button10=0x7f0a0025;
-        public static final int button11=0x7f0a0028;
-        public static final int button12=0x7f0a002b;
-        public static final int button13=0x7f0a002e;
-        public static final int button14=0x7f0a0031;
-        public static final int button15=0x7f0a0034;
-        public static final int button7=0x7f0a001c;
-        public static final int button8=0x7f0a001f;
-        public static final int button9=0x7f0a0022;
         public static final int configTableLayout=0x7f0a0007;
         public static final int delPlayerButton=0x7f0a0011;
         public static final int ipCodeLabel=0x7f0a0009;
         public static final int localGameTab=0x7f0a0003;
         public static final int localTabLayout=0x7f0a0004;
-        public static final int menu_settings=0x7f0a0038;
+        public static final int menu_settings=0x7f0a001a;
         public static final int newgame=0x7f0a0019;
-        public static final int opponentName=0x7f0a001a;
-        public static final int padding10Bot=0x7f0a0026;
-        public static final int padding10Top=0x7f0a0024;
-        public static final int padding11Bot=0x7f0a0029;
-        public static final int padding11Top=0x7f0a0027;
-        public static final int padding12Bot=0x7f0a002c;
-        public static final int padding12Top=0x7f0a002a;
-        public static final int padding13Bot=0x7f0a002f;
-        public static final int padding13Top=0x7f0a002d;
-        public static final int padding14Bot=0x7f0a0032;
-        public static final int padding14Top=0x7f0a0030;
-        public static final int padding15Bot=0x7f0a0035;
-        public static final int padding15Top=0x7f0a0033;
-        public static final int padding7Bot=0x7f0a001d;
-        public static final int padding7Top=0x7f0a001b;
-        public static final int padding8Bot=0x7f0a0020;
-        public static final int padding8Top=0x7f0a001e;
-        public static final int padding9Bot=0x7f0a0023;
-        public static final int padding9Top=0x7f0a0021;
         public static final int playGameButton=0x7f0a0002;
         public static final int playerNameEditText=0x7f0a000f;
         public static final int playerNameHeadingText=0x7f0a000b;
@@ -85,7 +56,6 @@ public final class R {
         public static final int tableHeadingRow=0x7f0a000a;
         public static final int textView1=0x7f0a0008;
         public static final int textView2=0x7f0a000e;
-        public static final int thisPlayerName=0x7f0a0036;
         public static final int top_gui_layout=0x7f0a0017;
     }
     public static final class layout {
@@ -96,7 +66,6 @@ public final class R {
         public static final int game_player_list_row=0x7f040004;
         public static final int game_remote_tab=0x7f040005;
         public static final int hex_human_player1=0x7f040006;
-        public static final int hex_human_player2=0x7f040007;
     }
     public static final class menu {
         public static final int game_main=0x7f090000;
