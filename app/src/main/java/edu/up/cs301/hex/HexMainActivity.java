@@ -67,7 +67,6 @@ public class HexMainActivity extends GameMainActivity {
 		
 	}//createDefaultConfig
 
-
 	/**
 	 * createLocalGame
 	 * 

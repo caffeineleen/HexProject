@@ -236,15 +236,6 @@ public class HexLocalGame extends LocalGame {
 			}
 		}
 
-
-
-
-
-
-
-
-
-
 		int one = stone[0];
 		int two = stone[1];
 

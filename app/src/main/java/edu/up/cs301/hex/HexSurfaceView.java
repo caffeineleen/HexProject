@@ -123,6 +123,19 @@ public class HexSurfaceView extends FlashSurfaceView {
             return;
         }
 
+        Paint pp = new Paint();
+        pp.setColor(Color.RED);
+        g.drawRect(startX+60,startY,startX+1110-50,startY+40,pp);
+        g.drawRect(startX+60+500,startY+880,startX+1110+500-50,startY+32+880,pp);
+        pp.setColor(Color.BLUE);
+        Path blue = new Path();
+        blue.moveTo(startX+10,startY+85);
+        blue.lineTo(startX+1110,startY+30);
+        blue.lineTo(startX+1610,startY+830);
+        blue.lineTo(startX+510,startY+885);
+        g.drawPath(blue, pp);
+
+
         int distance = startX;
         for(int i = 0; i < 11; i++) {
             for(int j = 0; j < 11; j++) {
