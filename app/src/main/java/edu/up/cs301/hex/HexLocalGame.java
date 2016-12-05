@@ -176,7 +176,7 @@ public class HexLocalGame extends LocalGame {
 
 
 
-		if (state.getStone(row, col) == 102)
+		if (state.getStone(row, col) == 102 && state.getStone(13,2) == 0)
 		{
 			for (int i=0; i<12; i++)
 			{
@@ -196,8 +196,12 @@ public class HexLocalGame extends LocalGame {
 		int whoseMove = state.getWhoseMove();
 
 		// place the player's stone on the selected square
-		//state.setPiece(row, col, mark[playerId]);
-		state.setStone(row, col, stone[playerId]);
+		//state.setStone(row, col, stone[playerId]);
+		state.setStone(row,col,state.getStone(13,playerId));
+		if (playerId == 1)
+		{
+			state.setStone(13,2,1);
+		}
 
 		int x = tm.getRow();
 		int y = tm.getCol();
@@ -205,7 +209,8 @@ public class HexLocalGame extends LocalGame {
 		int[] xAdj = {0,1,-1,1,-1,0};
 		int[] yAdj = {-1,-1,0,0,1,1};
 
-		if (stone[playerId] >= 100 && stone[playerId] < 200)
+		//if (stone[playerId] >= 100 && stone[playerId] < 200)
+		if (state.getStone(13,playerId) >= 100 && state.getStone(13,playerId) < 200)
 		{
 			for (int i = 0; i < 6; i++)
 			{
@@ -225,7 +230,8 @@ public class HexLocalGame extends LocalGame {
 				}
 			}
 		}
-		else if (stone[playerId] >= 200)
+		//else if (stone[playerId] >= 200)
+		else if (state.getStone(13,playerId) >= 200)
 		{
 			for (int i = 0; i < 6; i++)
 			{
@@ -246,7 +252,8 @@ public class HexLocalGame extends LocalGame {
 			}
 		}
 
-		stone[playerId]++;
+		//stone[playerId]++;
+		state.setStone(13,playerId,(state.getStone(13,playerId) + 1));
 
 		// make it the other player's turn
 		state.setWhoseMove(1-whoseMove);

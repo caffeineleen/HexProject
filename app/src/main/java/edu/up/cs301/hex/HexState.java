@@ -48,7 +48,7 @@ public class HexState extends GameState
         		board[i][j] = ' ';
         	}
         }
-        hexBoard = new int[13][13];
+        hexBoard = new int[14][13];
 
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 13; j++) {
@@ -73,6 +73,13 @@ public class HexState extends GameState
             hexBoard[12][i] = 201;
         }
 
+        //subset value for red
+        hexBoard[13][0] = 102;
+        //subset value for blue
+        hexBoard[13][1] = 202;
+        //binary value storing whether or not the first pair of moves have been completed
+        hexBoard[13][2] = 0;
+
 
         
         // make it player 0's move
@@ -95,7 +102,7 @@ public class HexState extends GameState
     			board[i][j] = original.board[i][j];
     		}
     	}
-        hexBoard = new int[13][13];
+        hexBoard = new int[14][13];
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 13; j++) {
                 hexBoard[i][j] = original.hexBoard[i][j];
