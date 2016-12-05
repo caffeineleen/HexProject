@@ -45,8 +45,8 @@ public class HexComputerPlayer2 extends GameComputerPlayer
         // cast it
         if (!(info instanceof HexState)) return;
         HexState myState = (HexState)info;
-        //int xVal = (int) (11 * Math.random()) + 1;
-        //int yVal = (int) (11 * Math.random()) + 1;
+        int xVal = (int) (11 * Math.random()) + 1;
+        int yVal = (int) (11 * Math.random()) + 1;
 
         //this loop searchs for a red player to place a stone around to block it
         for(int i = 1; i < 12; i++) {
@@ -84,6 +84,10 @@ public class HexComputerPlayer2 extends GameComputerPlayer
                     game.sendAction(new HexMoveAction(this, i, j-1));
                     return;
                 }
+                else if(myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200){
+                    game.sendAction(new HexMoveAction(this, xVal, yVal));
+                    return;
+                }
 
             }
         }
@@ -115,17 +119,17 @@ public class HexComputerPlayer2 extends GameComputerPlayer
                     game.sendAction(new HexMoveAction(this, i-1, j));
                     return;
                 }
-            }
-        }
-        /*else if(myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200){
+                else if(myState.getStone(j,i) > 200){
                     game.sendAction(new HexMoveAction(this, xVal, yVal));
                     return;
                 }
                 else {
                     game.sendAction(new HexMoveAction(this, xVal, yVal));
                     return;
-                }*/
+                }
 
+            }
+        }
 
 
     }// receiveInfo

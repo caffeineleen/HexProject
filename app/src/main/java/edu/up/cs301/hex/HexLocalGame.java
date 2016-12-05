@@ -21,8 +21,8 @@ public class HexLocalGame extends LocalGame {
 	protected HexState state;
 
 	// the marks for player 0 and player 1, respectively
-	private final static char[] mark = {'X','O'};
-	private final static int[] stone = {102,202};
+	//private final static char[] mark = {'X','O'};
+	//private final static int[] stone = {102,202};
 
 
 	// the number of moves that have been played so far, used to
