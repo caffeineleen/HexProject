@@ -7,7 +7,7 @@ import edu.up.cs301.game.infoMsg.NotYourTurnInfo;
 /**
  * This is a really dumb computer player that always just makes a random move
  * it's so stupid that it sometimes tries to make moves on non-blank spots.
- * 
+ *
  * @author Justin Jacobs
  * @author Navreen Kaur
  * @author Nathan Relyea
@@ -27,7 +27,7 @@ public class HexComputerPlayer1 extends GameComputerPlayer
     /**
      * Called when the player receives a game-state (or other info) from the
      * game.
-     * 
+     *
      * @param info
      * 		the message from the game
      */

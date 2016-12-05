@@ -91,9 +91,11 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         Log.i("set listener","OnTouch");
         surfaceView.setOnTouchListener(this);
 
+        Button quitgame = (Button) activity.findViewById(R.id.quitgame);
+        quitgame.setOnClickListener(this);
+
         Button newgame = (Button) activity.findViewById(R.id.newgame);
         newgame.setOnClickListener(this);
-
 
     }
 
@@ -154,6 +156,11 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
 
     public void onClick(View view)
     {
-        myActivity.finish();
+        switch (view.getId()){
+            case R.id.quitgame: myActivity.finish();
+                break;
+            case R.id.newgame: myActivity.recreate();
+                break;
+        }
     }
 }
