@@ -43,12 +43,8 @@ public class HexComputerPlayer1 extends GameComputerPlayer
             int xVal = (int) (11 * Math.random()) + 1;
             int yVal = (int) (11 * Math.random()) + 1;
 
-            HexState mystate = (HexState) info;
-
-            if (mystate.hexBoard[xVal][yVal] == 0) {
-
                 // delay for a second to make opponent think we're thinking
-                sleep(500);
+                sleep(200);
 
                 // Submit our move to the game object. We haven't even checked it it's
                 // our turn, or that that position is unoccupied. If it was not our turn,
@@ -57,7 +53,7 @@ public class HexComputerPlayer1 extends GameComputerPlayer
                 // we'll end up randomly pick a move that is legal.
                 game.sendAction(new HexMoveAction(this, yVal, xVal));
                 found = true;
-            }
+
         }
     }
 }

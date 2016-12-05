@@ -176,7 +176,6 @@ public class HexLocalGame extends LocalGame {
 
 		// if that space is not blank, indicate an illegal move
 		if (state.getStone(row, col) != 0) {
-			int babby = 0;
 			return false;
 		}
 
