@@ -174,8 +174,21 @@ public class HexLocalGame extends LocalGame {
 		// get the 0/1 id of our player
 		int playerId = getPlayerIdx(tm.getPlayer());
 
+
+
+		if (state.getStone(row, col) == 102)
+		{
+			for (int i=0; i<12; i++)
+			{
+				state.setStone(i,0,100);
+			}
+			for (int i=1; i<13; i++)
+			{
+				state.setStone(i,12,101);
+			}
+		}
 		// if that space is not blank, indicate an illegal move
-		if (state.getStone(row, col) != 0) {
+		else if (state.getStone(row, col) != 0) {
 			return false;
 		}
 
@@ -183,11 +196,8 @@ public class HexLocalGame extends LocalGame {
 		int whoseMove = state.getWhoseMove();
 
 		// place the player's stone on the selected square
-		state.setPiece(row, col, mark[playerId]);
+		//state.setPiece(row, col, mark[playerId]);
 		state.setStone(row, col, stone[playerId]);
-
-
-		int lmao = state.getStone(2,2);
 
 		int x = tm.getRow();
 		int y = tm.getCol();
@@ -235,8 +245,6 @@ public class HexLocalGame extends LocalGame {
 				}
 			}
 		}
-		int one = stone[0];
-		int two = stone[1];
 
 		stone[playerId]++;
 

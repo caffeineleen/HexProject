@@ -148,7 +148,11 @@ public class HexSurfaceView extends FlashSurfaceView {
             for(int j = 1; j < 12; j++){
                 int value = state.getStone(i,j);
                 int thing = value;
-                if(value >= 100 && value < 200){
+                if(value == 102)
+                {
+                    drawStone(i,j,3,g);
+                }
+                else if(value >= 100 && value < 200){
                     drawStone(i,j,1,g);
                 }
                 if(value >= 200) {
@@ -298,6 +302,10 @@ public class HexSurfaceView extends FlashSurfaceView {
         else if(color == 2)
         {
             stone.setColor(Color.BLUE);
+        }
+        else if(color == 3)
+        {
+            stone.setColor(Color.GREEN);
         }
 
         g.drawCircle(x*100-70+250+(y-1)*50,y*80-52+80,35,stone);
