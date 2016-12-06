@@ -255,6 +255,12 @@ public class HexLocalGame extends LocalGame {
 		//stone[playerId]++;
 		state.setStone(13,playerId,(state.getStone(13,playerId) + 1));
 
+		//changing the text view
+		if (state.getWhoseMove() == 0)
+		{
+
+		}
+
 		// make it the other player's turn
 		state.setWhoseMove(1-whoseMove);
 

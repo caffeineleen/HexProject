@@ -27,8 +27,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/turn"
                 android:layout_weight="0.90"
-                android:background="@color/blue"
-                android:textSize="36sp" />
+                android:background="@color/blue" />
 
             <Button
                 android:text="Instruction Manual"
