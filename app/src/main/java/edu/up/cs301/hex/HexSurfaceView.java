@@ -147,11 +147,16 @@ public class HexSurfaceView extends FlashSurfaceView {
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++){
                 int value = state.getStone(i,j);
-                int thing = value;
-                if(value >= 100 && value < 200){
+                if(value == 102) {
+                    drawStone(i,j,3,g);
+                }
+                else if(value >= 100 && value < 200){
                     drawStone(i,j,1,g);
                 }
-                if(value >= 200) {
+                if(value == 202){
+                    drawStone(i,j,4,g);
+                }
+                else if(value >= 200) {
                     drawStone(i,j,2,g);
                 }
             }
@@ -301,7 +306,11 @@ public class HexSurfaceView extends FlashSurfaceView {
         }
         else if(color == 3)
         {
-            stone.setColor(Color.GREEN);
+            stone.setColor(Color.YELLOW);
+        }
+        else if(color == 4)
+        {
+            stone.setColor(Color.BLACK);
         }
 
         g.drawCircle(x*100-70+250+(y-1)*50,y*80-52+80,35,stone);
@@ -366,15 +375,15 @@ public class HexSurfaceView extends FlashSurfaceView {
 
         if(found == true)
         {
-            if(state.hexBoard[i+1][j+1] == 0)
-            {
+//            if(state.hexBoard[i+1][j+1] == 0)
+//            {
 
                 return new Point(i+1, j+1);
-            }
-            else
-            {
-                return null;
-            }
+//            }
+//            else
+//            {
+//                return null;
+//            }
         }
         else
         {

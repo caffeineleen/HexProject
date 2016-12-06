@@ -40,9 +40,6 @@ public class HexMoveAction extends GameAction
         this.row = row;
         this.col = col;
 
-
-
-
     }
 
     /**

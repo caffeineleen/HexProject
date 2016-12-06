@@ -163,9 +163,6 @@ public class HexState extends GameState
         //if (row >= board.length || col >= board[row].length) return;
         hexBoard[row][col] = value;
     }
-
-
-
     
     /**
      * Tells whose move it is.

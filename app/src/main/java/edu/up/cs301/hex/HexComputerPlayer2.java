@@ -88,7 +88,6 @@ public class HexComputerPlayer2 extends GameComputerPlayer
                     game.sendAction(new HexMoveAction(this, xVal, yVal));
                     return;
                 }
-
             }
         }
         //if user choose to be blue player instead of red
