@@ -22,12 +22,19 @@
             android:layout_height="match_parent">
 
             <Button
+                android:text="Instruction Manual"
+                android:layout_width="337dp"
+                android:layout_height="112dp"
+                android:id="@+id/instructions"
+                android:background="@color/red" />
+
+            <Button
                 android:text="Quit Game"
                 android:id="@+id/quitgame"
                 android:background="@color/black"
                 android:layout_alignParentBottom="true"
                 android:layout_height="112dp"
-                android:layout_width="510dp" />
+                android:layout_width="378dp" />
 
             <Button
                 android:text="New Game"

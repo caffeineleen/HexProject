@@ -22,6 +22,7 @@ public class MessageBox {
 	 */
 	public static void popUpMessage(String msg, Activity activity) {
 		if (activity == null) return;
+
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setMessage(msg);
 		builder.setPositiveButton("OK", null);

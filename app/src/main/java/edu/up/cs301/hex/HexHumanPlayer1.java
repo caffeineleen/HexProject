@@ -1,6 +1,7 @@
 package edu.up.cs301.hex;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -97,6 +98,8 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         Button newgame = (Button) activity.findViewById(R.id.newgame);
         newgame.setOnClickListener(this);
 
+        Button manual = (Button) activity.findViewById(R.id.instructions);
+        manual.setOnClickListener(this);
     }
 
     /**
@@ -160,6 +163,23 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
             case R.id.quitgame: myActivity.finish();
                 break;
             case R.id.newgame: myActivity.recreate();
+                break;
+            case R.id.instructions:
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(myActivity);
+                alertDialog.setTitle("Hex Game Instructions");
+                alertDialog.setMessage("The Game\n" +
+                        "\n" +
+                        "The game is played by two players.\n" + "\n" +
+                        "There are two types of stones, red and blue stones. You, the human, will be the \"red player\", moving the red stones, while the computer will be the \"blue player\", moving the blue stones. The red player is the first one to move, then the blue player moves, and so forth.\n" + "\n" +
+                        "Pressing the Quit Game button will cause the application to close entirely, and all current data within to be reset. You can start a new game by pressing on the restart icon. \n" +
+                        "\n" +
+                        "\n" +
+                        "Winning\n" +
+                        "\n" +
+                        "To win the game, a player needs to have a link of hexagons that goes from one side of the board to the other, without any breaks. As the red player, you want to create a path from the top to the bottom of the board. The computer, the blue player, will try to create a path from the left to the right of the board.\n" +
+                        "\n" +
+                        "The first player to complete a path of hexagons is the winner.\n");
+                alertDialog.show();
                 break;
         }
     }
