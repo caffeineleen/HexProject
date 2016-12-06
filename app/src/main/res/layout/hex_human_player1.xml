@@ -35,7 +35,7 @@
                 android:layout_height="112dp"
                 android:id="@+id/instructions"
                 android:background="@color/red"
-                android:layout_weight="0.14" />
+                android:layout_weight="0.13" />
 
             <Button
                 android:text="New Game"

@@ -52,60 +52,6 @@ public class HexLocalGame extends LocalGame {
 	@Override
 	protected String checkIfGameOver() {
 
-		// the idea is that we simultaneously look at a row, column and
-		// a diagonal, using the variables 'rowToken', 'colToken' and
-		// 'diagToken'; we do this three times so that we get all three
-		// rows, all three columns, and both diagonals.  (The way the
-		// math works out, one of the diagonal tests tests the middle
-		// column.)  The respective variables get set to ' ' unless
-		// all characters in the line that have currently been seen are
-		// identical; in this case the variable contains that character
-
-		// the character that will eventually contain an 'X' or 'O' if we
-		// find a winner
-		char resultChar = ' ';
-
-		// to all three lines in the current group
-		for (int i = 0; i < 3; i++) {
-			// get the initial character in each line
-			char rowToken = state.getPiece(i,0);
-			char colToken = state.getPiece(0,i);;
-			char diagToken = state.getPiece(0,i);
-			// determine the direction that the diagonal moves
-			int diagDelta = 1-i;
-			// look for matches for each of the three positions in each
-			// of the current lines; set the corresponding variable to ' '
-			// if a mismatch is found
-			for (int j = 1; j < 3; j++) {
-				if (state.getPiece(i,j) != rowToken) rowToken = ' ';
-				if (state.getPiece(j,i) != colToken) colToken = ' ';
-				if (state.getPiece(j, i+(diagDelta*j)) != diagToken) diagToken = ' ';
-			}
-
-			////////////////////////////////////////////////////////////
-			// At this point, if any of our three variables is non-blank
-			// then we have found a winner.
-			////////////////////////////////////////////////////////////
-
-			// if we find a winner, indicate such by setting 'resultChar'
-			// to the winning mark.
-			if (rowToken != ' ') resultChar = rowToken;
-			else if (colToken != ' ') resultChar = colToken;
-			else if (diagToken != ' ') resultChar = diagToken;
-		}
-
-		// if resultChar is blank, we found no winner, so return null,
-		// unless the board is filled up. In that case, it's a cat's game.
-//    if (resultChar == ' ') {
-//       if  (moveCount >= 121) {
-//          // no winner, but all 9 spots have been filled
-//          return "It's a cat's game.";
-//       }
-//       else {
-//          return null; // no winner, but game not over
-//       }
-//    }
-
 		if (state.getStone(0,0) == state.getStone(12,12))
 		{
 			return "Red player Wins!";

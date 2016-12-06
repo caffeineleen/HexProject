@@ -19,7 +19,6 @@ import android.graphics.Point;
  */
 public class HexComputerPlayer2 extends GameComputerPlayer
 {
-
     /**
      * constructor for a computer player
      *
@@ -48,7 +47,10 @@ public class HexComputerPlayer2 extends GameComputerPlayer
         int xVal = (int) (11 * Math.random()) + 1;
         int yVal = (int) (11 * Math.random()) + 1;
 
-        //this loop searchs for a red player to place a stone around to block it
+        /*this loop searches for a red player to place a stone around to block it
+          if a red piece is found, computer player attempts to place its piece in one of the 8
+          positions around the human player's piece. Randomly selects which position out of 8 is best.
+         */
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++) {
                 double ran = Math.random();
@@ -84,11 +86,7 @@ public class HexComputerPlayer2 extends GameComputerPlayer
                     game.sendAction(new HexMoveAction(this, i, j-1));
                     return;
                 }
-                /*else if(myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200){
-                    game.sendAction(new HexMoveAction(this, xVal, yVal));
-                    return;
-                }
-                */
+
             }
         }
 

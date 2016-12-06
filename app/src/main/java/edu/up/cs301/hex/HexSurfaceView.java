@@ -179,32 +179,11 @@ public class HexSurfaceView extends FlashSurfaceView {
 //            d += (w/2);
 //        }
 
-
-
-
-
         // if we don't have any state, there's nothing more to draw, so return
         if (state == null) {
             return;
         }
-
-        // for each square that has an X or O, draw it on the appropriate
-        // place on the canvas
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                char result = state.getPiece(row, col); // get piece
-                drawSymbol(g, result, col, row);
-            }
-        }
-//        for (int row = 0; row < 13; row++) {
-//            for (int col = 0; col < 13; col++) {
-//                char result = state.getPiece(row, col); // get piece
-//                drawSymbol(g, result, col, row);
-//            }
-//        }
     }
-
-
 
     public void drawHex(int x, int y, Canvas g)
     {
@@ -233,10 +212,6 @@ public class HexSurfaceView extends FlashSurfaceView {
         path2.lineTo(x+5,y+82);
         g.drawPath(path2,p2);
     }
-
-
-
-
 
     /**
      * update the instance variables that relate to the drawing surface
