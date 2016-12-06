@@ -5,10 +5,12 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.text.Html;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
@@ -92,6 +94,9 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         Log.i("set listener","OnTouch");
         surfaceView.setOnTouchListener(this);
 
+        TextView turn = (TextView) activity.findViewById(R.id.turn);
+        turn.setText("Hey hey hey its FAAAAAAAAAAAT ALBERT!");
+
         Button quitgame = (Button) activity.findViewById(R.id.quitgame);
         quitgame.setOnClickListener(this);
 
@@ -167,18 +172,13 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
             case R.id.instructions:
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(myActivity);
                 alertDialog.setTitle("Hex Game Instructions");
-                alertDialog.setMessage("The Game\n" +
-                        "\n" +
-                        "The game is played by two players.\n" + "\n" +
-                        "There are two types of stones, red and blue stones. You, the human, will be the \"red player\", moving the red stones, while the computer will be the \"blue player\", moving the blue stones. The red player is the first one to move, then the blue player moves, and so forth.\n" + "\n" +
-                        "Pressing the Quit Game button will cause the application to close entirely, and all current data within to be reset. You can start a new game by pressing on the restart icon. \n" +
-                        "\n" +
-                        "\n" +
-                        "Winning\n" +
-                        "\n" +
-                        "To win the game, a player needs to have a link of hexagons that goes from one side of the board to the other, without any breaks. As the red player, you want to create a path from the top to the bottom of the board. The computer, the blue player, will try to create a path from the left to the right of the board.\n" +
-                        "\n" +
-                        "The first player to complete a path of hexagons is the winner.\n");
+                alertDialog.setMessage(Html.fromHtml("<p>" + "<u>" + "The Game" + "</u>" + "</p>"+
+                        "<p>" + "The game is played by two players." + "</p>" +
+                        "<p>" + "There are two types of stones, red and blue stones. You, the human, will be the \"red player\", moving the red stones, while the computer will be the \"blue player\", moving the blue stones. The red player is the first one to move, then the blue player moves, and so forth." + "</p>" +
+                        "<p>" + "Pressing the Quit Game button will cause the application to close entirely, and all current data within to be reset. You can start a new game by pressing on the restart icon." + "</p>" +
+                        "<p>" + "<u>" + "Winning" + "</u>" + "</p>" +
+                        "<p>" + "To win the game, a player needs to have a link of hexagons that goes from one side of the board to the other, without any breaks. As the red player, you want to create a path from the top to the bottom of the board. The computer, the blue player, will try to create a path from the left to the right of the board." + "</p>" +
+                        "<p>" + "The first player to complete a path of hexagons is the winner." + "</p>"));
                 alertDialog.show();
                 break;
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#abeff1</color>
-    <color name="blue">#0000ff</color>
+    <color name="blue">#c1bcba</color>
     <color name="green">#f1efa8</color>
     <color name="red">#d6efcb</color>
     <dimen name="config_horiz_margin">20dp</dimen>

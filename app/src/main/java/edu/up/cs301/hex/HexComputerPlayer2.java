@@ -52,69 +52,71 @@ public class HexComputerPlayer2 extends GameComputerPlayer
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++) {
                 double ran = Math.random();
-                if (ran < .125 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1, i+1) == 0) {
+                if (ran < .5 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1, i+1) == 0) {
                     game.sendAction(new HexMoveAction(this, i+1, j+1));
                     return;
                 }
-                else if (ran > .125 && ran < .25 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j-1, i-1) == 0) {
+                else if (ran < .5 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j-1, i-1) == 0) {
                     game.sendAction(new HexMoveAction(this, i-1, j-1));
                     return;
                 }
-                else if (ran > .25 && ran < .375 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j-1, i+1) == 0) {
+                else if (ran < .5 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j-1, i+1) == 0) {
                     game.sendAction(new HexMoveAction(this, i+1, j-1));
                     return;
                 }
-                else if (ran > .375 && ran < .50 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1, i-1) == 0) {
+                else if (ran < .5 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1, i-1) == 0) {
                     game.sendAction(new HexMoveAction(this, i-1, j+1));
                     return;
                 }
-                else if (ran > .50 && ran < .625 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j, i+1) == 0) {
+                else if (ran > .50 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j, i+1) == 0) {
                     game.sendAction(new HexMoveAction(this, i+1, j));
                     return;
                 }
-                else if (ran > .625 && ran < .75 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j, i-1) == 0) {
+                else if (ran > .50 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j, i-1) == 0) {
                     game.sendAction(new HexMoveAction(this, i-1, j));
                     return;
                 }
-                else if (ran > .75 && ran < .875 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1, i) == 0) {
+                else if (ran > .50 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j+1, i) == 0) {
                     game.sendAction(new HexMoveAction(this, i, j+1));
                     return;
                 }
-                else if (ran > .875 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j-1, i) == 0) {
+                else if (ran > .50 && myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200 && myState.getStone(j-1, i) == 0) {
                     game.sendAction(new HexMoveAction(this, i, j-1));
                     return;
                 }
-                else if(myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200){
+                /*else if(myState.getStone(j,i) > 100 && myState.getStone(j,i) < 200){
                     game.sendAction(new HexMoveAction(this, xVal, yVal));
                     return;
                 }
+                */
             }
         }
+
         //if user choose to be blue player instead of red
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++) {
                 double ran = Math.random();
-                if (ran < .166 && myState.getStone(j, i) > 200 && myState.getStone(j+1, i+1) == 0) {
+                if (ran < .50 && myState.getStone(j, i) > 200 && myState.getStone(j+1, i+1) == 0) {
                     game.sendAction(new HexMoveAction(this, i+1, j+1));
                     return;
                 }
-                else if (ran > .166 && ran < .33 && myState.getStone(j, i) > 200 && myState.getStone(j-1, i-1) == 0) {
+                else if (ran < .50 && myState.getStone(j, i) > 200 && myState.getStone(j-1, i-1) == 0) {
                     game.sendAction(new HexMoveAction(this, i-1, j-1));
                     return;
                 }
-                else if (ran > .33 && ran < .499 && myState.getStone(j, i) > 200 && myState.getStone(j-1, i+1) == 0) {
+                else if (ran < .50 && myState.getStone(j, i) > 200 && myState.getStone(j-1, i+1) == 0) {
                     game.sendAction(new HexMoveAction(this, i+1, j-1));
                     return;
                 }
-                else if (ran > .499 && ran < .66 && myState.getStone(j, i) > 200 && myState.getStone(j+1, i-1) == 0) {
+                else if (ran > .50 && myState.getStone(j, i) > 200 && myState.getStone(j+1, i-1) == 0) {
                     game.sendAction(new HexMoveAction(this, i-1, j+1));
                     return;
                 }
-                else if (ran > .66 && ran < .833 && myState.getStone(j, i) > 200 && myState.getStone(j, i+1) == 0) {
+                else if (ran > .50 && myState.getStone(j, i) > 200 && myState.getStone(j, i+1) == 0) {
                     game.sendAction(new HexMoveAction(this, i+1, j));
                     return;
                 }
-                else if (ran > .833 && myState.getStone(j, i) > 200 && myState.getStone(j, i-1) == 0) {
+                else if (ran > .50 && myState.getStone(j, i) > 200 && myState.getStone(j, i-1) == 0) {
                     game.sendAction(new HexMoveAction(this, i-1, j));
                     return;
                 }
@@ -129,7 +131,6 @@ public class HexComputerPlayer2 extends GameComputerPlayer
 
             }
         }
-
 
     }// receiveInfo
 }

@@ -97,7 +97,7 @@ public class HexSurfaceView extends FlashSurfaceView {
      * 		the color to paint the hex lines, and the X's and O's
      */
     public int backgroundColor() {
-        return Color.rgb(191,117,209);
+        return Color.rgb(193,188,186);
     }
 
     /**
