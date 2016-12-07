@@ -2,7 +2,6 @@ package edu.up.cs301.hex;
 
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
-import android.graphics.Point;
 
 /**
  * A computerized hex player that recognizes the opponents

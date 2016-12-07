@@ -22,28 +22,21 @@
             android:layout_height="match_parent"
             android:weightSum="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/turn"
-                android:layout_weight="0.90"
-                android:background="@color/blue" />
-
             <Button
                 android:text="Instruction Manual"
                 android:layout_width="243dp"
                 android:layout_height="112dp"
                 android:id="@+id/instructions"
                 android:background="@color/red"
-                android:layout_weight="0.13" />
+                android:layout_weight="0.30" />
 
             <Button
                 android:text="New Game"
                 android:layout_height="112dp"
                 android:id="@+id/newgame"
-                android:layout_width="269dp"
+                android:layout_width="208dp"
                 android:background="@color/green"
-                android:layout_weight="0.00" />
+                android:layout_weight="0.46" />
 
             <Button
                 android:text="Quit Game"
@@ -52,7 +45,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_height="match_parent"
                 android:layout_width="250dp"
-                android:layout_weight="0.07" />
+                android:layout_weight="0.26" />
 
         </LinearLayout>
 

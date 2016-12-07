@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
@@ -93,9 +92,6 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         surfaceView = (HexSurfaceView)myActivity.findViewById(R.id.surfaceView);
         Log.i("set listener","OnTouch");
         surfaceView.setOnTouchListener(this);
-
-        TextView turn = (TextView) activity.findViewById(R.id.turn);
-        turn.setText("Hey hey hey its FAAAAAAAAAAAT ALBERT!");
 
         Button quitgame = (Button) activity.findViewById(R.id.quitgame);
         quitgame.setOnClickListener(this);

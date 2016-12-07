@@ -42,8 +42,8 @@ public class HexSurfaceView extends FlashSurfaceView {
             + LINE_WIDTH_PERCENT; // distance from left (or top) edge of square to the next one
 
     /*
-	 * Instance variables
-	 */
+    * Instance variables
+    */
 
     // the game's state
     protected HexState state;
@@ -57,6 +57,7 @@ public class HexSurfaceView extends FlashSurfaceView {
     // size
     protected float fullSquare;
 
+    protected int num;
     /**
      * Constructor for the HexSurfaceView class.
      *
@@ -86,15 +87,13 @@ public class HexSurfaceView extends FlashSurfaceView {
         setBackgroundColor(backgroundColor());
     }// init
 
-
     public void setState(HexState state) {
         this.state = state;
     }
 
-
     /**
      * @return
-     * 		the color to paint the hex lines, and the X's and O's
+     *        the color to paint the hex lines, and the X's and O's
      */
     public int backgroundColor() {
         return Color.rgb(193,188,186);
@@ -105,7 +104,7 @@ public class HexSurfaceView extends FlashSurfaceView {
      * frame
      *
      * @param g
-     * 		the canvas to draw on
+     *        the canvas to draw on
      */
 
     public int startX = 220;
@@ -144,6 +143,15 @@ public class HexSurfaceView extends FlashSurfaceView {
             distance += 50;
         }
 
+        Paint r = new Paint();
+        Paint b = new Paint();
+        Paint back = new Paint();
+        back.setColor(Color.WHITE);
+        r.setColor(Color.RED);
+        b.setColor(Color.BLUE);
+        r.setTextSize(80);
+        b.setTextSize(80);
+
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++){
                 int value = state.getStone(i,j);
@@ -153,35 +161,20 @@ public class HexSurfaceView extends FlashSurfaceView {
                 if(value >= 200) {
                     drawStone(i,j,2,g);
                 }
-                if(value == 0)
-                {
-                    drawStone(i,j,3,g);
-                }
             }
         }
 
-//        double w = 100;
-//        double h = 0.8 * w;
-//        double d = startX;
-//        double e = startY + 30;
-//
-//        Paint p3 = new Paint();
-//        p3.setColor(Color.RED);
-//
-//        for (int j=0; j<11; j++)
-//        {
-//            for (int i=0; i<11; i++)
-//            {
-//                Path path3 = new Path();
-//                path3.moveTo((100*i)+(float)d,(float)(h*j+e));
-//                path3.lineTo((100*i)+(float)d + 100,(float)(h*j+e));
-//                path3.lineTo((100*i)+(float)d + 100,(float)((h*(j+1)-(0.289*w))+e));
-//                path3.lineTo((100*i)+(float)d,(float)((h*(j+1)-(0.289*w))+e));
-//                path3.lineTo((100*i)+(float)d,(float)(h*j+e));
-//                g.drawPath(path3,p3);
-//            }
-//            d += (w/2);
-//        }
+        if(state.getWhoseMove() == 0) {
+            g.drawRect(g.getWidth()-560, 100, g.getWidth()-20, 250, r);
+            g.drawRect(g.getWidth()-550, 110, g.getWidth()-30, 240, back);
+            g.drawText("Player 1 Turn", g.getWidth()-520, 200, r);
+        }
+        else if (state.getWhoseMove() == 1) {
+            g.drawRect(g.getWidth()-560, 100, g.getWidth()-20, 250, b);
+            g.drawRect(g.getWidth()-550, 110, g.getWidth()-30, 240, back);
+            g.drawText("Player 2 Turn", g.getWidth()-520, 200, b);
+        }
+
 
         // if we don't have any state, there's nothing more to draw, so return
         if (state == null) {
@@ -189,6 +182,12 @@ public class HexSurfaceView extends FlashSurfaceView {
         }
     }
 
+    public void setP(int num) {
+        this.num = num;
+    }
+    public int getP(){
+        return num;
+    }
     public void drawHex(int x, int y, Canvas g)
     {
         Paint p = new Paint();
@@ -221,7 +220,7 @@ public class HexSurfaceView extends FlashSurfaceView {
      * update the instance variables that relate to the drawing surface
      *
      * @param g
-     * 		an object that references the drawing surface
+     *        an object that references the drawing surface
      */
     private void updateDimensions(Canvas g) {
 
@@ -247,36 +246,20 @@ public class HexSurfaceView extends FlashSurfaceView {
 
     }
 
-    /**
-     * Draw a symbol (X or O) on the canvas in a particular location
-     *
-     * @param g
-     *            the graphics object on which to draw
-     * @param sym
-     *            the symbol to draw (X or O)
-     * @param col
-     *            the column number of the square on which to draw (0, 1 or 2)
-     * @param col
-     *            the row number of the square on which to draw (0, 1 or 2)
-     */
-    protected void drawSymbol(Canvas g, char sym, int col, int row)
-    {
-
-
-    }
-
     public void drawStone(int x, int y, int color, Canvas g) {
         Paint stone = new Paint();
         if(color == 1){
             stone.setColor(Color.RED);
+            //g.drawRect(20, 20, 200, 200, stone);
         }
         else if(color == 2)
         {
             stone.setColor(Color.BLUE);
+
         }
         else if(color == 3)
         {
-            stone.setColor(Color.WHITE);
+            stone.setColor(Color.YELLOW);
         }
         else if(color == 4)
         {
@@ -284,28 +267,21 @@ public class HexSurfaceView extends FlashSurfaceView {
         }
 
         g.drawCircle(x*100-70+250+(y-1)*50,y*80-52+80,35,stone);
-
-
     }
-
 
     /**
      * maps a point from the canvas' pixel coordinates to "square" coordinates
      *
      * @param fingerX
-     * 		the x pixel-coordinate
+     *        the x pixel-coordinate
      * @param fingerY
-     * 		the y pixel-coordinate
+     *        the y pixel-coordinate
      * @return
-     *		a Point whose components are in the range 0-2, indicating the
-     *		column and row of the corresponding square on the tic-tac-toe
-     * 		board, or null if the point does not correspond to a square
+     *    a Point whose components are in the range 0-2, indicating the
+     *    column and row of the corresponding square on the tic-tac-toe
+     *        board, or null if the point does not correspond to a square
      */
     public Point mapPixelToSquare(int fingerX, int fingerY) {
-
-        //public int startX = 220;
-        //public int startY = 50;
-
 
         //variables for width and height of each hexagon, width is the one to be manually entered (height is dependent on width)
         double w = 100;
@@ -344,20 +320,11 @@ public class HexSurfaceView extends FlashSurfaceView {
         }
         if(found == true)
         {
-//            if(state.hexBoard[i+1][j+1] == 0)
-//            {
-
-                return new Point(i+1, j+1);
-//            }
-//            else
-//            {
-//                return null;
-//            }
+            return new Point(i+1, j+1);
         }
         else
         {
             return null;
         }
-        //return null;
     }
 }
