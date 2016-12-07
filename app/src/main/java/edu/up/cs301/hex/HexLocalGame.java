@@ -120,7 +120,8 @@ public class HexLocalGame extends LocalGame {
 		// get the 0/1 id of our player
 		int playerId = getPlayerIdx(tm.getPlayer());
 
-
+		// get the 0/1 id of the player whose move it is
+		int whoseMove = state.getWhoseMove();
 
 		if (state.getStone(row, col) == 102 && state.getStone(13,2) == 0)
 		{
@@ -132,18 +133,18 @@ public class HexLocalGame extends LocalGame {
 			{
 				state.setStone(i,12,101);
 			}
+			state.setStone(col, row, state.getStone(13, playerId));
+			state.setStone(row, col, 0);
 		}
 		// if that space is not blank, indicate an illegal move
 		else if (state.getStone(row, col) != 0) {
 			return false;
 		}
+		else {
+			// place the player's stone on the selected square
+			state.setStone(row, col, state.getStone(13, playerId));
+		}
 
-		// get the 0/1 id of the player whose move it is
-		int whoseMove = state.getWhoseMove();
-
-		// place the player's stone on the selected square
-		//state.setStone(row, col, stone[playerId]);
-		state.setStone(row,col,state.getStone(13,playerId));
 		if (playerId == 1)
 		{
 			state.setStone(13,2,1);

@@ -174,7 +174,7 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
                 alertDialog.setTitle("Hex Game Instructions");
                 alertDialog.setMessage(Html.fromHtml("<p>" + "<u>" + "The Game" + "</u>" + "</p>"+
                         "<p>" + "The game is played by two players." + "</p>" +
-                        "<p>" + "There are two types of stones, red and blue stones. You, the human, will be the \"red player\", moving the red stones, while the computer will be the \"blue player\", moving the blue stones. The red player is the first one to move, then the blue player moves, and so forth." + "</p>" +
+                        "<p>" + "There are two types of stones, red and blue stones. The \"red player\" will move the red stones, while the \"blue player\" moves the blue stones. The red player is the first one to move, then the blue player moves, and so forth." + "</p>" +
                         "<p>" + "Since the red player has an advantage in going first, the pie rule is implemented. The blue player, as their first move, has two options: 1) Placing their stone after the red player, or 2) Pressing on the red player's stone, swapping moves, so that the blue player becomes the first-moving player, and the red player makes their “first move”.\n" + "</p>" +
                         "<p>" + "Pressing the New Game button will bring you back to the configuration screen, and pressing the Quit Game button will cause the application to close entirely, and all current data within to be reset." + "</p>" +
                         "<p>" + "<u>" + "Winning" + "</u>" + "</p>" +

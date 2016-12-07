@@ -153,6 +153,10 @@ public class HexSurfaceView extends FlashSurfaceView {
                 if(value >= 200) {
                     drawStone(i,j,2,g);
                 }
+                if(value == 0)
+                {
+                    drawStone(i,j,3,g);
+                }
             }
         }
 
@@ -272,7 +276,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         }
         else if(color == 3)
         {
-            stone.setColor(Color.YELLOW);
+            stone.setColor(Color.WHITE);
         }
         else if(color == 4)
         {
