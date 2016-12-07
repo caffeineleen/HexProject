@@ -174,12 +174,12 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
                 alertDialog.setTitle("Hex Game Instructions");
                 alertDialog.setMessage(Html.fromHtml("<p>" + "<u>" + "The Game" + "</u>" + "</p>"+
                         "<p>" + "The game is played by two players." + "</p>" +
-                        "<p>" + "There are two types of stones, red and blue stones. The \"red player\" will move the red stones, while the \"blue player\" moves the blue stones. The red player is the first one to move, then the blue player moves, and so forth." + "</p>" +
-                        "<p>" + "Since the red player has an advantage in going first, the pie rule is implemented. The blue player, as their first move, has two options: 1) Placing their stone after the red player, or 2) Pressing on the red player's stone, swapping moves, so that the blue player becomes the first-moving player, and the red player makes their “first move”.\n" + "</p>" +
-                        "<p>" + "Pressing the New Game button will bring you back to the configuration screen, and pressing the Quit Game button will cause the application to close entirely, and all current data within to be reset." + "</p>" +
+                        "<p>" + "There are two types of stones, red and blue. The \"red player\" moves the red stones, while the \"blue player\" moves the blue stones. The red player is the first one to move, then the blue player, and so forth." + "</p>" +
+                        "<p>" + "Since the red player has an advantage in going first, the pie rule is implemented. The blue player, as their first move, has two options: 1) Placing their stone after the red player, or 2) Pressing on the red player's stone and swapping moves, making the blue player the first-moving player." + "</p>" +
+                        "<p>" + "Pressing the New Game button will bring you back to the configuration screen, and pressing the Quit Game button will close the application entirely, and reset the current data." + "</p>" +
                         "<p>" + "<u>" + "Winning" + "</u>" + "</p>" +
-                        "<p>" + "To win the game, a player needs to have a link of hexagons that goes from one side of the board to the other, without any breaks. As the red player, you want to create a path from the top to the bottom of the board. The computer, the blue player, will try to create a path from the left to the right of the board." + "</p>" +
-                        "<p>" + "The first player to complete a path of hexagons is the winner." + "</p>"));
+                        "<p>" + "To win the game, a player needs to have a link of adjacent hexagons that goes from one side of the board to the other. The red player should create a path from the top to the bottom of the board. The blue player should create a path from the left to the right of the board." + "</p>" +
+                        "<p>" + "The first player to make a path is the winner." + "</p>"));
                 alertDialog.show();
                 break;
         }

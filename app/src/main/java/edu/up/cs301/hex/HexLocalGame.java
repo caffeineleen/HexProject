@@ -135,6 +135,9 @@ public class HexLocalGame extends LocalGame {
 			}
 			state.setStone(col, row, state.getStone(13, playerId));
 			state.setStone(row, col, 0);
+			int temp = row;
+			row = col;
+			col = temp;
 		}
 		// if that space is not blank, indicate an illegal move
 		else if (state.getStone(row, col) != 0) {
@@ -150,8 +153,8 @@ public class HexLocalGame extends LocalGame {
 			state.setStone(13,2,1);
 		}
 
-		int x = tm.getRow();
-		int y = tm.getCol();
+		int x = row;
+		int y = col;
 
 		int[] xAdj = {0,1,-1,1,-1,0};
 		int[] yAdj = {-1,-1,0,0,1,1};
