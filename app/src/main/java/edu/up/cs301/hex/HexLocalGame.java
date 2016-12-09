@@ -130,8 +130,8 @@ public class HexLocalGame extends LocalGame {
 			{
 				state.setStone(i,12,101);
 			}
-			state.setStone(col, row, state.getStone(13, playerId));
 			state.setStone(row, col, 0);
+			state.setStone(col, row, state.getStone(13, playerId));
 			int temp = row;
 			row = col;
 			col = temp;
