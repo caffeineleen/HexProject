@@ -31,22 +31,22 @@ public class HexMainActivity extends GameMainActivity {
 		// Define the allowed player types
 		ArrayList<GamePlayerType> playerTypes = new ArrayList<GamePlayerType>();
 		
-		// red human GUI
-		playerTypes.add(new GamePlayerType("Local Human Player (red player)") {
+		// human GUI
+		playerTypes.add(new GamePlayerType("Local Human Player") {
 			public GamePlayer createPlayer(String name) {
 				return new HexHumanPlayer1(name, R.layout.hex_human_player1);
 			}
 		});
 
 		// dumb computer player
-		playerTypes.add(new GamePlayerType("Computer Player (dumb blue player)") {
+		playerTypes.add(new GamePlayerType("Dumb Computer Player") {
 			public GamePlayer createPlayer(String name) {
 				return new HexComputerPlayer1(name);
 			}
 		});
 		
 		// smarter computer player
-		playerTypes.add(new GamePlayerType("Computer Player (smart blue player)") {
+		playerTypes.add(new GamePlayerType("Smart Computer Player") {
 			public GamePlayer createPlayer(String name) {
 				return new HexComputerPlayer2(name);
 			}

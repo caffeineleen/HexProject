@@ -175,7 +175,6 @@ public class HexSurfaceView extends FlashSurfaceView {
             g.drawText("Player 2 Turn", g.getWidth()-520, 200, b);
         }
 
-
         // if we don't have any state, there's nothing more to draw, so return
         if (state == null) {
             return;
@@ -243,7 +242,6 @@ public class HexSurfaceView extends FlashSurfaceView {
             hBase = 0;
             vBase = (height - width) / (float) 2.0;
         }
-
     }
 
     public void drawStone(int x, int y, int color, Canvas g) {
@@ -255,17 +253,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         else if(color == 2)
         {
             stone.setColor(Color.BLUE);
-
         }
-        else if(color == 3)
-        {
-            stone.setColor(Color.YELLOW);
-        }
-        else if(color == 4)
-        {
-            stone.setColor(Color.BLACK);
-        }
-
         g.drawCircle(x*100-70+250+(y-1)*50,y*80-52+80,35,stone);
     }
 

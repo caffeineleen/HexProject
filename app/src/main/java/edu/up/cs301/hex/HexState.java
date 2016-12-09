@@ -69,8 +69,6 @@ public class HexState extends GameState
         //binary value storing whether or not the first pair of moves have been completed
         hexBoard[13][2] = 0;
 
-
-
         // make it player 0's move
         playerToMove = 0;
     }// constructor

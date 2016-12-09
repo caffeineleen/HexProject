@@ -33,8 +33,10 @@ public class HexComputerPlayer1 extends GameComputerPlayer
      */
     @Override
     protected void receiveInfo(GameInfo info) {
-
+        //creates boolean to determine
         boolean found = false;
+
+        //
         while(found == false) {
             // if it was a "not your turn" message, just ignore it
             if (info instanceof NotYourTurnInfo) return;

@@ -64,12 +64,9 @@ public class HexLocalGame extends LocalGame {
 		{
 			return null;
 		}
-
 		// if we get here, then we've found a winner, so return the 0/1
 		// value that corresponds to that mark; then return a message
 
-		//int gameWinner = resultChar == mark[0] ? 0 : 1;
-		//return playerNames[gameWinner]+" is the winner.";
 	}
 
 	/**
@@ -180,6 +177,7 @@ public class HexLocalGame extends LocalGame {
 				}
 			}
 		}
+
 		//else if (stone[playerId] >= 200)
 		else if (state.getStone(13,playerId) >= 200)
 		{
@@ -204,12 +202,6 @@ public class HexLocalGame extends LocalGame {
 
 		//stone[playerId]++;
 		state.setStone(13,playerId,(state.getStone(13,playerId) + 1));
-
-		//changing the text view
-		if (state.getWhoseMove() == 0)
-		{
-
-		}
 
 		// make it the other player's turn
 		state.setWhoseMove(1-whoseMove);

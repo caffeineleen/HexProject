@@ -33,10 +33,6 @@ public class HexMoveAction extends GameAction
         // invoke superclass constructor to set the player
         super(player);
 
-        // set the row and column as passed to us
-        //this.row = Math.max(0, Math.min(12, row));
-        //this.col = Math.max(0, Math.min(12, col));
-
         this.row = row;
         this.col = col;
 
@@ -55,5 +51,4 @@ public class HexMoveAction extends GameAction
      * @return the column selected
      */
     public int getCol() { return col; }
-
 }
