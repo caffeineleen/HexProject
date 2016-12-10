@@ -1,0 +1,16 @@
+Date: November 11, 2016
+Problem: Wanted more clarification about the game framework and how to fix github related problems.
+Resource Used: Made appointment with Professor Vegdhal
+Solution: Re-downloaded zip file of the game to fix github issues, and Professor Vegdhal explained how
+ start making our game.
+
+Date: November 15, 2016
+Problem: How to create hexagon shapes in android
+Resource: I googled 'android path', http://stackoverflow.com/questions/3501126/how-to-draw-a-filled-triangle-in-android-canvas
+Solution: Used the methods used in the example to create hexagons
+
+Date: December 6, 2016
+Problem: How to write text on surface view
+Resource Used: I googled 'android draw text', https://developer.android.com/reference/android/graphics/Canvas.html#drawText(java.lang.CharSequence, int,       int, float, float, android.graphics.Paint)
+Solution: Use draw text method on canvas
+

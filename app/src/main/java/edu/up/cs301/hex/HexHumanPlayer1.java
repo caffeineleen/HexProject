@@ -93,6 +93,7 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
         Log.i("set listener","OnTouch");
         surfaceView.setOnTouchListener(this);
 
+        //creates buttons and their listeners
         Button quitgame = (Button) activity.findViewById(R.id.quitgame);
         quitgame.setOnClickListener(this);
 
@@ -152,14 +153,13 @@ public class HexHumanPlayer1 extends GameHumanPlayer implements View.OnTouchList
             game.sendAction(action);
             surfaceView.invalidate();
         }
-
         // register that we have handled the event
         return true;
-
     }
 
     public void onClick(View view)
     {
+        //creates cases, and switces depending on which button is pressed
         switch (view.getId()){
             case R.id.quitgame: myActivity.finish();
                 break;

@@ -21,9 +21,8 @@ public class HexState extends GameState
     // ************** instance variables ************
     ///////////////////////////////////////////////////
 
-    // the 13x13 array of char that represents the x and y positions on the board
+    // the 14x13 array of int that represents the x and y positions on the board
     public int[][] hexBoard;
-
 
     // an int that tells whose move it is
     private int playerToMove;
@@ -109,7 +108,6 @@ public class HexState extends GameState
      * @param col
      * @param value sets the x and y position of stone being placed
      */
-
     public void setStone(int row, int col, int value) {
         hexBoard[row][col] = value;
     }
@@ -131,5 +129,4 @@ public class HexState extends GameState
     public void setWhoseMove(int id) {
         playerToMove = id;
     }
-
 }

@@ -2,6 +2,7 @@ package edu.up.cs301.hex;
 
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.infoMsg.GameInfo;
+import android.graphics.Point;
 
 /**
  * A computerized hex player that recognizes the opponents
@@ -85,11 +86,10 @@ public class HexComputerPlayer2 extends GameComputerPlayer
                     game.sendAction(new HexMoveAction(this, i, j-1));
                     return;
                 }
-
             }
         }
-
-        //if user choose to be blue player instead of red
+        //If user chooses to be blue player instead of red. Works similarly to previous loop
+        //by choosing one of the 8 positions around a blue stone.
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++) {
                 double ran = Math.random();
@@ -125,9 +125,7 @@ public class HexComputerPlayer2 extends GameComputerPlayer
                     game.sendAction(new HexMoveAction(this, xVal, yVal));
                     return;
                 }
-
             }
         }
-
     }// receiveInfo
 }
