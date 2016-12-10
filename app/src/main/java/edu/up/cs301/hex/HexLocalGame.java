@@ -20,15 +20,6 @@ public class HexLocalGame extends LocalGame {
 	// the game's state
 	protected HexState state;
 
-	// the marks for player 0 and player 1, respectively
-	//private final static char[] mark = {'X','O'};
-	//private final static int[] stone = {102,202};
-
-
-	// the number of moves that have been played so far, used to
-	// determine whether the game is over
-	protected int moveCount;
-
 	/**
 	 * Constructor for the HexLocalGame.
 	 */
@@ -125,20 +116,25 @@ public class HexLocalGame extends LocalGame {
 		// get the 0/1 id of the player whose move it is
 		int playerId = state.getWhoseMove();
 
-
-
+		//checks if pie rule is an option / has been satisfied
 		if (state.getStone(row, col) == 102 && state.getStone(13,2) == 0)
 		{
 			for (int i=0; i<12; i++)
 			{
+				//resets values for invisible top row
 				state.setStone(i,0,100);
 			}
 			for (int i=1; i<13; i++)
 			{
+				//resets values for invisible bottom row
 				state.setStone(i,12,101);
 			}
+			//removes stone at focus location
 			state.setStone(row, col, 0);
+			//replaces stone for player 2 at the mirror of that location
 			state.setStone(col, row, state.getStone(13, playerId));
+
+			//switches row and col values because we will need to evaluate subset info on the new spots
 			int temp = row;
 			row = col;
 			col = temp;
@@ -154,22 +150,27 @@ public class HexLocalGame extends LocalGame {
 
 		if (playerId == 1)
 		{
+			//disables pie rule
 			state.setStone(13,2,1);
 		}
 
 		int x = row;
 		int y = col;
 
+		//creates arrays that store modifier variables for comparing focus tile with adjacent tiles
 		int[] xAdj = {0,1,-1,1,-1,0};
 		int[] yAdj = {-1,-1,0,0,1,1};
 
-		//if (stone[playerId] >= 100 && stone[playerId] < 200)
+		//if stone is a red stone
 		if (state.getStone(13,playerId) >= 100 && state.getStone(13,playerId) < 200)
 		{
+			//loops through to account for all possible 6 adjacent tiles
 			for (int i = 0; i < 6; i++)
 			{
+				//if the adjacent stone is also red
 				if (state.getStone(x+xAdj[i],y+yAdj[i]) >= 100 && state.getStone(x+xAdj[i],y+yAdj[i]) < 200 && state.getStone(x+xAdj[i],y+yAdj[i]) != state.getStone(x,y))
 				{
+					//set all red stones to same subset value as focus red stone
 					int temp = state.getStone(x+xAdj[i],y+yAdj[i]);
 					for(int j = 0; j < 13; j++)
 					{
@@ -185,13 +186,16 @@ public class HexLocalGame extends LocalGame {
 			}
 		}
 
-		//else if (stone[playerId] >= 200)
+		//if stone is a blue stone
 		else if (state.getStone(13,playerId) >= 200)
 		{
+			//loops through to account for all possible 6 adjacent tiles
 			for (int i = 0; i < 6; i++)
 			{
+				//if adjacent stone is also blue
 				if (state.getStone(x+xAdj[i],y+yAdj[i]) >= 200 && state.getStone(x+xAdj[i],y+yAdj[i]) != state.getStone(x,y))
 				{
+					//set all blue stones to same subset value as focus blue stone
 					int temp = state.getStone(x+xAdj[i],y+yAdj[i]);
 					for(int j = 0; j < 13; j++)
 					{
@@ -207,16 +211,13 @@ public class HexLocalGame extends LocalGame {
 			}
 		}
 
-		//stone[playerId]++;
+		//add one to the next subset value for the appropriate player
 		state.setStone(13,playerId,(state.getStone(13,playerId) + 1));
 
 		// make it the other player's turn
 		state.setWhoseMove(1-playerId);
 
-		// bump the move count
-		moveCount++;
-
-		// return true, indicating the it was a legal move
+		// return true, indicating a legal move was completed
 		return true;
 	}
 }
