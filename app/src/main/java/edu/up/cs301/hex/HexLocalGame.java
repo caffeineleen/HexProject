@@ -52,14 +52,21 @@ public class HexLocalGame extends LocalGame {
 	@Override
 	protected String checkIfGameOver() {
 
+		//if a member of the top invisible row matches a member of the bottom invisible row,
+		//then the red player must have successfully connected a path between the top and bottom
+		//sides and therefore Red wins
 		if (state.getStone(0,0) == state.getStone(12,12))
 		{
 			return "Red player Wins!";
 		}
+		//if a member of the left invisible row matches a member of the right invisible row,
+		//then the blue player must have successfully connected a path between the left and right
+		//sides and therefore Red wins
 		else if (state.getStone(12,0) == state.getStone(0,12))
 		{
 			return "Blue player Wins!";
 		}
+		//if none of the invisible row values match, nobody has won, so return null
 		else
 		{
 			return null;
@@ -111,14 +118,14 @@ public class HexLocalGame extends LocalGame {
 
 		// get the row and column position of the player's move
 		HexMoveAction tm = (HexMoveAction) action;
+		//sets values for rows and columns via the getRow() and getCol() from the HexMoveAction instance we created
 		int row = tm.getRow();
 		int col = tm.getCol();
 
-		// get the 0/1 id of our player
-		int playerId = getPlayerIdx(tm.getPlayer());
-
 		// get the 0/1 id of the player whose move it is
-		int whoseMove = state.getWhoseMove();
+		int playerId = state.getWhoseMove();
+
+
 
 		if (state.getStone(row, col) == 102 && state.getStone(13,2) == 0)
 		{
@@ -204,7 +211,7 @@ public class HexLocalGame extends LocalGame {
 		state.setStone(13,playerId,(state.getStone(13,playerId) + 1));
 
 		// make it the other player's turn
-		state.setWhoseMove(1-whoseMove);
+		state.setWhoseMove(1-playerId);
 
 		// bump the move count
 		moveCount++;

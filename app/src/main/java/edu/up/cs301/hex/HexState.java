@@ -34,15 +34,17 @@ public class HexState extends GameState
     {
         // initialize the state to be a brand new game
 
+        //creates a new board
         hexBoard = new int[14][13];
 
+        //sets all values on the board to zero
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 13; j++) {
                 hexBoard[i][j] = 0;
             }
         }
 
-        //sets top and bottom row to 100 and 101
+        //sets invisible rows above and below board to 100 and 101 respectively
         for (int i=0; i<12; i++)
         {
             hexBoard[i][0] = 100;
@@ -51,7 +53,7 @@ public class HexState extends GameState
         {
             hexBoard[i][12] = 101;
         }
-        //sets left and right columns to 200 and 201
+        //sets invisible rows to the left and right of the board to 200 and 201 respectively
         for (int i=1; i<13; i++)
         {
             hexBoard[0][i] = 200;
@@ -60,6 +62,8 @@ public class HexState extends GameState
         {
             hexBoard[12][i] = 201;
         }
+
+        //values held in hexBoard array that are referenced for other aspects of the game
 
         //subset value for red
         hexBoard[13][0] = 102;

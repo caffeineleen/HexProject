@@ -24,28 +24,7 @@ import edu.up.cs301.game.util.FlashSurfaceView;
  */
 public class HexSurfaceView extends FlashSurfaceView {
 
-    // some constants, which are percentages with respect to the minimum
-    // of the height and the width. All drawing will be done in the "middle
-    // square".
-    //
-    // The divisions both horizontally and vertically within the
-    // playing square are:
-    // - first square starts at 5% and goes to 33%
-    // - second square starts at 36% and goes to 64%
-    // - third square starts at 67& and goes to 95%
-    // There is therefore a 5% border around the edges; each square
-    // is 28% high/wide, and the lines between squares are 3%
-    private final static float BORDER_PERCENT = 5; // size of the border
-    private final static float SQUARE_SIZE_PERCENT = 28; // size of each of our 9 squares
-    private final static float LINE_WIDTH_PERCENT = 3; // width of a hex line
-    private final static float SQUARE_DELTA_PERCENT = SQUARE_SIZE_PERCENT
-            + LINE_WIDTH_PERCENT; // distance from left (or top) edge of square to the next one
-
-    /*
-    * Instance variables
-    */
-
-    // the game's state
+    // instance of the game's state
     protected HexState state;
 
     // the offset from the left and top to the beginning of our "middle square"; one
@@ -107,14 +86,12 @@ public class HexSurfaceView extends FlashSurfaceView {
      *        the canvas to draw on
      */
 
+
+    //values that control the starting x and y value at which the board is drawn in respect to the top left corner of the screen
     public int startX = 220;
     public int startY = 50;
 
     public void onDraw(Canvas g) {
-
-        // update the variables that relate
-        // to the dimensions of the animation surface
-        updateDimensions(g);
 
         // paint the hex board
 
@@ -122,10 +99,12 @@ public class HexSurfaceView extends FlashSurfaceView {
             return;
         }
 
+        //paints base for red borders at top and bottom of board
         Paint pp = new Paint();
         pp.setColor(Color.RED);
         g.drawRect(startX+60,startY,startX+1110-50,startY+40,pp);
         g.drawRect(startX+60+500,startY+880,startX+1110+500-50,startY+32+880,pp);
+        //paints base for blue borders at left and right of board
         pp.setColor(Color.BLUE);
         Path blue = new Path();
         blue.moveTo(startX+10,startY+85);
@@ -134,15 +113,18 @@ public class HexSurfaceView extends FlashSurfaceView {
         blue.lineTo(startX+510,startY+885);
         g.drawPath(blue, pp);
 
-
+        //controls the starting X value of each row of hex tiles
         int distance = startX;
+        //loops to draw each individual hexagon tile to compose the board
         for(int i = 0; i < 11; i++) {
             for(int j = 0; j < 11; j++) {
                 drawHex(100*j+10+distance, 80*i+startY,g);
             }
+        //increments horizontal distance between each row in order to properly overlap the tiles
             distance += 50;
         }
 
+        //sets up values and objects for displaying whose turn it is in the top right corner of the screen
         Paint r = new Paint();
         Paint b = new Paint();
         Paint back = new Paint();
@@ -152,6 +134,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         r.setTextSize(80);
         b.setTextSize(80);
 
+        //loops through the board to see if stones should be drawn in each tile, if they should be, they are drawn using drawStone()
         for(int i = 1; i < 12; i++) {
             for(int j = 1; j < 12; j++){
                 int value = state.getStone(i,j);
@@ -163,7 +146,7 @@ public class HexSurfaceView extends FlashSurfaceView {
                 }
             }
         }
-
+        //uses previously set up values to write whose turn it is on screen after checking state.getWhoseMove()
         if(state.getWhoseMove() == 0) {
             g.drawRect(g.getWidth()-560, 100, g.getWidth()-20, 250, r);
             g.drawRect(g.getWidth()-550, 110, g.getWidth()-30, 240, back);
@@ -181,12 +164,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         }
     }
 
-    public void setP(int num) {
-        this.num = num;
-    }
-    public int getP(){
-        return num;
-    }
+    //method to draw an individual hex tile (called in onDraw loop to construct the board)
     public void drawHex(int x, int y, Canvas g)
     {
         Paint p = new Paint();
@@ -195,7 +173,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         Paint p2 = new Paint();
         p2.setColor(Color.WHITE);
 
-        //draws the background of hex shape
+        //draws the background of hex tile
         Path path = new Path();
         path.moveTo(x+0,y+29);
         path.lineTo(x+50, y+0);
@@ -205,6 +183,7 @@ public class HexSurfaceView extends FlashSurfaceView {
         path.lineTo(x+0,y+87);
         g.drawPath(path, p);
 
+        //draws the foreground of hex tile
         Path path2 = new Path();
         path2.moveTo(x+5,y+34);
         path2.lineTo(x+50,y+8);
@@ -221,39 +200,19 @@ public class HexSurfaceView extends FlashSurfaceView {
      * @param g
      *        an object that references the drawing surface
      */
-    private void updateDimensions(Canvas g) {
-
-        // initially, set the height and width to be that of the
-        // drawing surface
-        int width = g.getWidth();
-        int height = g.getHeight();
-
-        // Set the "full square" size to be the minimum of the height and
-        // the width. Depending on which is greater, set either the
-        // horizontal or vertical base to be partway across the screen,
-        // so that the "playing square" is in the middle of the screen on
-        // its long dimension
-        if (width > height) {
-            fullSquare = height;
-            vBase = 0;
-            hBase = (width - height) / (float) 2.0;
-        } else {
-            fullSquare = width;
-            hBase = 0;
-            vBase = (height - width) / (float) 2.0;
-        }
-    }
 
     public void drawStone(int x, int y, int color, Canvas g) {
         Paint stone = new Paint();
+        //if stone is for player 1, set stone color to red
         if(color == 1){
             stone.setColor(Color.RED);
-            //g.drawRect(20, 20, 200, 200, stone);
         }
+        //if stone is for player 2, set stone color to blue
         else if(color == 2)
         {
             stone.setColor(Color.BLUE);
         }
+        //draw stone of that color after converting x and y board values to screen pixel values
         g.drawCircle(x*100-70+250+(y-1)*50,y*80-52+80,35,stone);
     }
 
@@ -293,25 +252,35 @@ public class HexSurfaceView extends FlashSurfaceView {
 
         search:
         {
+        //loops through entire board
             for (j=0; j<11; j++)
             {
                 for (i=0; i<11; i++)
                 {
+                    //checks for the finger press to be within the boundaries of a box denoted by the largest possible box
+                    //able to be drawn within an equilateral hexagon, and with respect to the i and j values correlating to the actual board
                     if(fingerX>(w*i)+d && fingerX<(w*(i+1))+d && fingerY>(h*j)+e && fingerY<(h*(j+1)-(0.289*w))+e)
                     {
+                        //if square boundaries are satisfied, then the user must have pressed within a tile, so a tile was found
                         found = true;
+                        //if square boundaries are satisfied, the loop is broken so that the i and j values that emerge relate to the correct tile coordinates
                         break search;
                     }
                 }
+                //increments the displacement of each row as columns increase
                 d += (w/2);
             }
         }
         if(found == true)
         {
+            //a pixel was found, so a Point variable is returned containing the appropriate i and j values, which
+            //are each incremented forwards once as to account for the fact that in our hexBoard array, the first tile's
+            //x,y values are 1,1 (not 0,0 like this test starts with)
             return new Point(i+1, j+1);
         }
         else
         {
+            //a pixel was not found, so the method returns null
             return null;
         }
     }
